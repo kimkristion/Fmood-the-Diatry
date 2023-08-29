@@ -1,0 +1,104 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "header header header header"
+  "week random random pages"
+  "week random random pages"
+  "week goals goals pages"
+  "week goals goals pages";
+  font-size: 16px;
+  line-height: 24px;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+
+h3 {
+  font-size: 1.7rem;
+  line-height: 2.5rem;
+}
+
+
+.grid-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: header;
+  background: blue;
+  color: white;
+}
+
+.grid-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-area: week;
+  background: green;
+  color: white;
+}
+
+.grid-random-facts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: random;
+  background: red;
+  color: white;
+}
+
+.grid-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: goals;
+  background: orange;
+  color: white;
+}
+
+.grid-pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-area: pages; 
+  background: purple;
+}
+
+.page-1,
+.page-2,
+.page-3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 100px;
+  background: pink;
+}
+
+.page-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 100px;
+  background: pink;
+}
