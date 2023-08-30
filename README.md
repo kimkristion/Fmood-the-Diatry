@@ -18,6 +18,6 @@ So I can reflect on how my food choices relate to my mood.
 ## Credits
 - Sean Keller
 - Jeremiah Haynes
-- Salome
-- Justin Shultz
+- Salome Mphago
+- Justin Schultz
 - Kristion Kim
