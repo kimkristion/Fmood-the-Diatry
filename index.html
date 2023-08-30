@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
   <title>Project Name Here</title>
 </head>
 
@@ -13,34 +13,40 @@
   <div class="grid-header">
     <h1>Header</h1>
   </div>
-    
-    <div class="grid-side">
 
-      <button id="monday" onclick="showAlert()"><h2>Monday</h2></button>
-      <button id="tuesday" onclick="showAlert()"><h2>Tuesday</h2></button>
-      <button id="wednesday" onclick="showAlert()"><h2>Wednesday</h2></button>
-      <button id="thursday" onclick="showAlert()"><h2>Thursday</h2></button>
-      <button id="friday" onclick="showAlert()"><h2>Friday</h2></button>
-      <button id="saturday" onclick="showAlert()"><h2>Saturday</h2></button>
-      <button id="sunday" onclick="showAlert()"><h2>Sunday</h2></button>
+  <div class="grid-side">
 
-    </div>
-    <div class="grid-random-facts">
-      <h2>Random Facts Here</h2>
-    </div>
-    <div class="grid-main">
-      <h2>
-        Personal Goals
-      </h2>
-    </div>
-    <div class="grid-pages">
-      <div class="page-1"><h3>Food Diary</h3></div>
-      <div class="page-2"><h3>Notes</h3></div>
-      <div class="page-3"><h3>Foods to Try</h3></div>
-      <div class="page-4"><h3>Foods to Avoid</h3></div>
-    </div>
+    <button id="modal" onclick="showAlert()">
+      <h2>Log Your Meal</h2>
 
+  </div>
+  <div class="grid-random-facts">
+    <h2>Random Facts Here</h2>
+  </div>
+  <div class="grid-main">
+    <h2>
+      Personal Goals
+    </h2>
+  </div>
+  <div class="grid-pages">
+    <div class="page-1">
+      <h3>Food Diary</h3>
+    </div>
+    <div class="page-2">
+      <h3>Notes</h3>
+    </div>
+    <div class="page-3">
+      <h3>Foods to Try</h3>
+    </div>
+    <div class="page-4">
+      <h3>Foods to Avoid</h3>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
   <script src="./assets/js/script.js"></script>
+
 
 </body>
 
