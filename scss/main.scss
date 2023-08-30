@@ -1,0 +1,122 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+};
+
+$light : powderblue;
+$dark : navy;
+$base : ghostwhite;
+$second-base: grey;
+$third-base: black;
+$bright: red;
+$font-size: (
+    'small': 1.7rem,
+    'regular' : 2.5rem,
+    'medium' : 3rem,
+);
+
+$line-height: (
+    'low': 1.5rem,
+    'regular': 2.5rem,
+    'medium': 3rem,
+    'high': 3.5rem,
+
+);
+
+$height: (
+    'toddler': 80px,
+    'teen': 120px,
+    'adult': 1080px,
+);
+
+$width: (
+    'wide': 100px,
+);
+
+body {
+    display:grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "header header header header"
+    "week random random pages"
+    "week random random pages"
+    "week goals goals pages"
+    "week goals goals pages";
+    font-size: map-get($font-size, small);
+    line-height: map-get($line-height, low);
+    height: map-get($height, teen);
+};
+
+.grid-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: header;
+    background: $light;
+    color: $base;
+};
+
+h1 {
+    font-size: map-get($font-size,medium);
+    line-height: map-get($line-height,high);
+};
+  
+h2 {
+    font-size: map-get($font-size,regular);
+    line-height: map-get($line-height,medium);
+};
+  
+h3 {
+    font-size: map-get($font-size,small);
+    line-height: map-get($line-height,regular);
+};
+  
+.grid-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    grid-area: week;
+    background: $dark;
+    color: $base;
+};
+
+.grid-random-facts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: random;
+    background: $second-base;
+    color: $base;
+};
+  
+.grid-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: goals;
+    background: $third-base;
+    color: $base;
+};
+
+.round-button {
+    display: inline-block;
+    padding: 30px 40px;
+    background-color: $light;
+    color: $dark;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+};
+  
+.round-button:hover {
+    background-color: $bright;
+};
+
+  
