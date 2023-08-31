@@ -16,8 +16,22 @@
   </div>
 
   <div class="grid-side">
-
+    
     <button id="modal" onclick="openModal()" class="round-button">Log Your Meal</button>
+    
+    <div id="themodal" class="modal">
+      <div class="thecontent">
+          <h3 onclick="closeModal()" style="float: right; cursor: pointer;">&times</h3>
+          <h2>Todays Feelings</h2>
+          <input type="text" id="foodInput" placeholder="what did you eat?">
+          <br><br>
+          <hr>
+          <h2>How did I feel after this: </h2>
+          <input type="text" id="foodInput">
+          <br><br>
+          <button onclick="sumbitFood()">Enter</button>
+      </div>
+  </div>
 
   </div>
   <div class="grid-random-facts">
