@@ -70,6 +70,7 @@ let factContainer = document.createElement('div');
 let randomIndex = Math.floor(Math.random() * foodFacts.length);
 let randomFact = foodFacts[randomIndex];
 let factContainerHeader = document.createElement('h2'); // Create fact section header
+factContainerHeader.style.textAlign = 'center';
 factContainerHeader.textContent = 'Random Food Fact';
 
 // Creates element to place fact content

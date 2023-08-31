@@ -10,37 +10,27 @@
 
 <body>
 
-  <div class="grid-header">
-    <h1>Header</h1>
-  </div>
+  <header class="grid-header">
 
-  <div class="grid-side">
 
+  </header>
+
+  <div class="grid-left-side">
     <button id="modal" onclick="showAlert()">
       <h2>Log Your Meal</h2>
+  </div>
 
+  <div class="grid-content">
+    <h1>FMood, Food Journal</h1>
+    <h2>How what you eat affects your mood</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate laudantium sapiente odit sed laboriosam,
+      voluptatum corrupti magni obcaecati. Fugiat quas cumque laboriosam praesentium vel, voluptas eveniet recusandae
+      necessitatibus consequuntur sunt!
+    </p>
   </div>
-  <div class="grid-random-facts">
-    <h2>Random Facts Here</h2>
-  </div>
-  <div class="grid-main">
-    <h2>
-      Food Journal Entries
-    </h2>
-  </div>
-  <div class="grid-pages">
-    <div class="page-1">
-      <h3>Food Diary</h3>
-    </div>
-    <div class="page-2">
-      <h3>Notes</h3>
-    </div>
-    <div class="page-3">
-      <h3>Foods to Try</h3>
-    </div>
-    <div class="page-4">
-      <h3>Foods to Avoid</h3>
-    </div>
+
+  <div class="grid-right-side">
+    <div id="food-fact-container"></div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
