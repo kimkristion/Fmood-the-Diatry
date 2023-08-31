@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "header header header header" "week random random pages" "week random random pages" "week goals goals pages" "week goals goals pages";
+  font-size: 1.7rem;
+  line-height: 1.5rem;
+  height: 120px;
+}
+
+.grid-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: header;
+  background: powderblue;
+  color: ghostwhite;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+
+h3 {
+  font-size: 1.7rem;
+  line-height: 2.5rem;
+}
+
+.grid-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-area: week;
+  background: navy;
+  color: ghostwhite;
+}
+
+.grid-random-facts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: random;
+  background: grey;
+  color: ghostwhite;
+}
+
+.grid-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: goals;
+  background: black;
+  color: ghostwhite;
+}
+
+.round-button {
+  display: inline-block;
+  padding: 30px 40px;
+  background-color: powderblue;
+  color: navy;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.round-button:hover {
+  background-color: red;
+}
