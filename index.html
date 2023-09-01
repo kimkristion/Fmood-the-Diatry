@@ -39,10 +39,26 @@
       voluptatum corrupti magni obcaecati. Fugiat quas cumque laboriosam praesentium vel, voluptas eveniet recusandae
       necessitatibus consequuntur sunt!
     </p>
-    <button id="modal" onclick="showAlert()">
+    <button id="modal" onclick="openModal()">
       Log Your Meal
     </button>
   </div>
+
+  <div id="themodal" class="modal" style="display: none">
+    <div class="thecontent">
+        <h3 onclick="closeModal()" style="float: right; cursor: pointer;">&times</h3>
+        <h2>Todays Feelings</h2>
+        <input type="text" id="foodInput" placeholder="what did you eat?">
+        <br><br>
+        <hr>
+        <h2>How did I feel after this: </h2>
+        <input type="text" id="foodInput">
+        <br><br>
+        <button onclick="sumbitFood()">Enter</button>
+    </div>
+</div>
+
+
 
   <div class="grid-right-side">
     <h2>Did you know?</h2>
