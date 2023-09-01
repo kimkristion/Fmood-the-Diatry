@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-  <!--link rel="stylesheet" href="./dist/css/main.css"-->
+  <!--link rel="stylesheet" type="text/css" href="./assets/css/style.css"-->
+  <link rel="stylesheet" href="./dist/css/main.css">
   <title>FMood</title>
 </head>
 
@@ -36,11 +36,12 @@
     <div class="grid-content">
       <h1>FMood, Food Journal</h1>
       <h3>Reflect on your eating habits</h3>
+      <!--a href="#"><img src="./assets/images/83bdc8cd2cfd042cf515398935c12306.jpeg" alt="image" class="image"></a-->
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate laudantium sapiente odit sed laboriosam,
         voluptatum corrupti magni obcaecati. Fugiat quas cumque laboriosam praesentium vel, voluptas eveniet recusandae
         necessitatibus consequuntur sunt!
       </p>
-      <button id="modal" onclick="openModal()">
+      <button class="button" id="modal" onclick="openModal()">
         Log Your Meal
       </button>
     </div>
@@ -74,6 +75,10 @@
     <div class="journal-time">Log Time</div>
     <div class="journal-meal">Meal Entry</div>
     <div class="journal-mood">Mood Entry</div>
+  </div>
+
+  <div class="footer-container">
+    <h4 class="footer">Love what you Eat!</h4>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
