@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-  <title>Project Name Here</title>
+  <!--link rel="stylesheet" type="text/css" href="./assets/css/style.css"-->
+  <link rel="stylesheet" type="text/css" href="./dist/css/main.css">
+  <title>FMood</title>
 </head>
 
 <body>
+
 
   <!-- <div id="page-load-container">
     <video id="logo-vid" autoplay muted>
@@ -46,6 +48,61 @@
     <h2>Did you know?</h2>
     <div id="food-fact-container">
       <p id="food-fact-content"></p>
+
+  <div class="grid-header">
+    <h1>FMood the Dietary App</h1>
+  </div>
+
+  <div class="grid-side">
+
+    <button id="modal" onclick="openModal()" class="round-button">Log Your Meal</button>
+    
+    <div id="themodal" class="modal" style="display: none">
+      <div class="thecontent">
+          <h3 onclick="closeModal()" style="float: right; cursor: pointer;">&times</h3>
+          <h2>Todays Feelings</h2>
+          <input type="text" id="foodInput" placeholder="what did you eat?">
+          <br><br>
+          <hr>
+          <h2>How did I feel after this: </h2>
+          <input type="text" id="foodInput">
+          <br><br>
+          <button onclick="sumbitFood()">Enter</button>
+      </div>
+  </div>
+
+  </div>
+  <div class="grid-random-facts">
+    <h2>Random Facts Here</h2>
+  </div>
+  <div class="grid-main">
+    <table>
+      <tr>
+        <th>Date
+          <ul id="entry-date">AUG 30, 2023</ul>
+        </th>
+        <th>Meal
+          <ul id="entry-meal">I had a banana for lunch today</ul>
+        </th>
+        <th>Mood
+          <ul id="entry-mood">I felt good about eating the banana, because I know eating fruits is good for me.</ul>
+        </th>
+      </tr>
+    </table>
+  </div>
+  <div class="grid-pages">
+    <div class="page-1">
+      <h3>Food Diary</h3>
+    </div>
+    <div class="page-2">
+      <h3>Notes</h3>
+    </div>
+    <div class="page-3">
+      <h3>Foods to Try</h3>
+    </div>
+    <div class="page-4">
+      <h3>Foods to Avoid</h3>
+
     </div>
   </div>
 

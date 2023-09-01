@@ -1,4 +1,3 @@
-var modalTIme = dayjs();
 
 // Global variables
 var foodFacts = [
@@ -117,3 +116,4 @@ foodFact();
 
 // 	foodFact();
 // };
+
