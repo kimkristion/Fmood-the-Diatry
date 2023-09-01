@@ -11,21 +11,24 @@
 }
 
 body {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 1fr 8fr 1fr;
-  grid-template-areas: 
-  "header header header header"
-  "left content content right"
-  "left content content right"
-  "left content content right"
-  "left content content right";
-  gap: 20px;
   background-color: rgb(16, 110, 113);
   color: var(--font-color);
   font-size: 16px;
   line-height: 24px;
   height: 100vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 8fr 1fr;
+  grid-template-areas:
+    "header header header header"
+    "left content content right"
+    "left content content right"
+    "left content content right"
+    "left content content right";
+  gap: 20px;
 }
 
 #page-load-container {
@@ -56,7 +59,7 @@ nav {
   align-items: center;
   justify-content: flex-end;
   margin-right: 20px;
-  border-bottom: 0.4px solid var(--font-color); 
+  border-bottom: 0.4px solid var(--font-color);
 }
 
 .logo {
@@ -128,7 +131,7 @@ p {
   margin-bottom: 20px;
   padding-left: 240px;
   background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565)), url(../images/bg.jpeg) no-repeat center / cover;
-  border: 2px solid var(--font-color); 
+  border: 2px solid var(--font-color);
 }
 
 #modal {
@@ -175,10 +178,48 @@ p {
   align-self: center;
 }
 
+.journal-container {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "jheader jheader jheader jheader"
+    "jleft jmeal jmood jmood"
+    "jleft jmeal jmood jmood"
+    "jleft jmeal jmood jmood"
+    "jleft jmeal jmood jmood ";
+  gap: 10px;
+  margin: 0 1.5rem;
+}
+
+.journal-header {
+  grid-area: jheader;
+  border: 2px solid white;
+}
+
+.journal-time {
+  grid-area: jleft;
+  border: 2px solid white;
+
+}
+
+.journal-meal {
+  grid-area: jmeal;
+  border: 2px solid white;
+
+}
+
+.journal-mood {
+  grid-area: jmood;
+  border: 2px solid white;
+
+}
+
 @keyframes slideIn {
   0% {
     transform: translateX(120%);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -188,8 +229,9 @@ p {
   0% {
     transform: translateX(0);
   }
+
   100% {
-    transform :translateX(-120%);
+    transform: translateX(-120%);
   }
 }
 
