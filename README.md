@@ -15,6 +15,11 @@ So I can reflect on how my food choices relate to my mood.
 ## Usage
 - Fmood is a digital webpage that allows a user to log their eating habits, along with introspective commentary of their feelings about the meal they logged.
 
+## Sources for food facts
+[Insider](https://insider.com/amazing-food-facts-2017-12) 
+[eatfirst](https://eatfirst.com.au/en-au/c/blog/fun-facts-about-food)
+[RD](https://rd.com/article/food-facts-trivia/)
+
 ## Credits
 - Sean Keller
 - Jeremiah Haynes
