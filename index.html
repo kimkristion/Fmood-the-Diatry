@@ -10,27 +10,43 @@
 
 <body>
 
+  <!-- <div id="page-load-container">
+    <video id="logo-vid" autoplay muted>
+      <source src="./assets/video/FMood.mp4" type="video/mp4">
+      Your browser does not support this video format.
+    </video>
+  </div> -->
   <header class="grid-header">
-
-
+    <a href="#"><img alt="logo" class ="logo" src="./assets/images/logo.png"></a>
+    <nav class="navbar">
+      <ul>
+        <li class="nav-item"><a href="#">Home</a></li>
+        <li class="nav-item"><a href="#">Journal</a></li>
+        <li class="nav-item"><a href="#">About</a></li>
+        <li class="nav-item"><a href="#">Resources</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="grid-left-side">
-    <button id="modal" onclick="showAlert()">
-      <h2>Log Your Meal</h2>
-  </div>
+  <div class="grid-left-side"></div>
 
   <div class="grid-content">
     <h1>FMood, Food Journal</h1>
-    <h2>How what you eat affects your mood</h2>
+    <h3>Reflect on your eating habits</h3>
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate laudantium sapiente odit sed laboriosam,
       voluptatum corrupti magni obcaecati. Fugiat quas cumque laboriosam praesentium vel, voluptas eveniet recusandae
       necessitatibus consequuntur sunt!
     </p>
+    <button id="modal" onclick="showAlert()">
+      Log Your Meal
+    </button>
   </div>
 
   <div class="grid-right-side">
-    <div id="food-fact-container"></div>
+    <h2>Did you know?</h2>
+    <div id="food-fact-container">
+      <p id="food-fact-content"></p>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"

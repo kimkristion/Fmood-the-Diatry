@@ -21,13 +21,68 @@ body {
   "left content content right"
   "left content content right";
   gap: 20px;
-  background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565)), url(../images/bg.jpeg) no-repeat center / cover;
+  background-color: rgb(16, 110, 113);
   color: var(--font-color);
   font-size: 16px;
   line-height: 24px;
   height: 100vh;
 }
 
+#page-load-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+#logo-vid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+}
+
+nav {
+  width: 100%;
+  height: 104px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 20px;
+  border-bottom: 0.4px solid var(--font-color); 
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+a {
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+li {
+  display: inline-block;
+  font-size: 1.3rem;
+  padding: 0 1.3rem;
+  list-style: none;
+  transition: 300ms ease-in-out;
+}
+
+li:hover {
+  text-decoration: underline;
+}
 
 h1 {
   font-size: 3rem;
@@ -54,8 +109,6 @@ p {
   align-items: center;
   justify-content: center;
   grid-area: header;
-  border: 2px solid blue;
-
 }
 
 .grid-left-side {
@@ -64,18 +117,6 @@ p {
   align-items: center;
   justify-content: space-evenly;
   grid-area: left;
-  border: 2px solid green;
-}
-
-.grid-right-side {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  grid-area: right;
-  width: 300px;
-  border: 2px solid yellow;
 }
 
 .grid-content {
@@ -83,6 +124,79 @@ p {
   flex-direction: column;
   justify-content: center;
   grid-area: content;
-  padding-left: 60px;
-  border: 2px solid purple;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 240px;
+  background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565)), url(../images/bg.jpeg) no-repeat center / cover;
+  border: 2px solid var(--font-color); 
+}
+
+#modal {
+  font-size: 20px;
+  padding: 1rem 2rem;
+  margin-top: 30px;
+  width: 200px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.grid-right-side {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-area: right;
+  width: 300px;
+}
+
+#food-fact-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  margin-top: 30px;
+  padding: 1.5rem;
+  height: 230px;
+  background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
+  overflow-x: hidden;
+  border: 2px solid var(--font-color);
+}
+
+#food-fact-content {
+  position: relative;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  font-size: 1.3rem;
+  width: 210px;
+  justify-self: center;
+  align-self: center;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform :translateX(-120%);
+  }
+}
+
+.slide-in {
+  animation-name: slideIn;
+}
+
+.slide-out {
+  animation-name: slideOut;
 }

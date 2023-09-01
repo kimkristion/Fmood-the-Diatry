@@ -1,7 +1,6 @@
 var modalTIme = dayjs();
 
 // Global variables
-var foodFactContainer = document.getElementById('food-fact-container')
 var foodFacts = [
 	{
 		fact: "Bananas are the world's oldest fruit and date back to over 10,000 years ago.",
@@ -66,26 +65,55 @@ var foodFacts = [
 
 // Function randomly generates fact from foodFacts object
 function foodFact() {
-let factContainer = document.createElement('div');
-let randomIndex = Math.floor(Math.random() * foodFacts.length);
-let randomFact = foodFacts[randomIndex];
-let factContainerHeader = document.createElement('h2'); // Create fact section header
-factContainerHeader.style.textAlign = 'center';
-factContainerHeader.textContent = 'Random Food Fact';
+	let foodFactContent = document.getElementById('food-fact-content'); 
 
-// Creates element to place fact content
-let factContent = document.createElement('h3');
-factContent.style.textAlign = 'center';
-factContent.textContent = randomFact.fact;
+	// adds slide-out class to html content
+	foodFactContent.classList.add('slide-out');
 
-factContainer.appendChild(factContainerHeader);
-factContainer.appendChild(factContent);
+	// Sets timeout function for animation time
+	setTimeout(() => {
+		// Generates random fact from array
+		let randomIndex = Math.floor(Math.random() * foodFacts.length);
+		let randomFact = foodFacts[randomIndex];
 
-foodFactContainer.innerHTML = '';
-foodFactContainer.appendChild(factContainer);
-};
+		// Applies fact content to screen
+		foodFactContent.textContent = randomFact.fact;
 
-window.addEventListener('load', function(event) {
-  event.preventDefault();
-  foodFact();
-});
+		foodFactContent.classList.remove('slide-out');
+		foodFactContent.classList.add('slide-in');
+	}, 1000);
+
+		setTimeout(() => {
+			foodFactContent.classList.remove('slide-in', 'slide-out');
+		}, 2000);
+
+
+	setTimeout(foodFact, 6000);
+}
+
+foodFact();
+
+// document.addEventListener('DOMContentLoaded', function() {
+// 	let video = document.getElementById('logo-vid');
+// 	let videoContainer = document.getElementById('page-load-container');
+
+// 	video.addEventListener('ended', function() {
+// 		video.pause();
+// 		fadeOut(videoContainer);
+// 	});
+// });
+
+// function fadeOut(element) {
+// 	let opacity = 1;
+// 	let interval = setInterval(function() {
+// 		if (opacity > 0) {
+// 			opacity -= 0.1;
+// 			element.style.opacity = opacity;
+// 		} else {
+// 			clearInterval(interval);
+// 			element.style.display = 'none';
+// 		}
+// 	}, 50);
+
+// 	foodFact();
+// };
