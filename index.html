@@ -12,13 +12,13 @@
 
   <div class="grid">
     <header class="grid-header">
-      <a href="./index.html"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
+      <a href="#"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
       <nav class="navbar">
         <ul>
-          <li class="nav-item"><a href="./index.html">Home</a></li>
+          <li class="nav-item"><a href="#">Home</a></li>
           <li class="nav-item"><a href="#">Journal</a></li>
           <li class="nav-item"><a href="#">About</a></li>
-          <li class="nav-item"><a href="./resources.html">Resources</a></li>
+          <li class="nav-item"><a href="#">Resources</a></li>
         </ul>
       </nav>
     </header>
@@ -37,13 +37,21 @@
       </button>
     </div>
 
-  <div class="grid-right-side">
-    <h2>Did you know?</h2>
-    <div id="food-fact-container">
-      <p id="food-fact-content"></p>
+    <div class="grid-right-side">
+      <h2>Did you know?</h2>
+      <div id="food-fact-container">
+        <p id="food-fact-content"></p>
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="journal-container">
+    <h2 class="journal-header">Journal Section</h2>
+
+    <div class="journal-time">Log Time</div>
+    <div class="journal-meal">Meal Entry</div>
+    <div class="journal-mood">Mood Entry</div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
@@ -55,7 +63,7 @@
       <h3>Today's Feelings</h3>
       <input type="text" id="foodInput" name="food" placeholder="Enter your meal...">
       <h3>How did I feel after this: </h3>
-      <input type="text" id="feelingsInput" name="feelings" placeholder="Enter how your feelings after you ate...">
+      <input type="text" id="feelingsInput" name="feelings" placeholder="Enter how you felt after you ate...">
       <button type="submit" onclick="sumbitEntry()">Enter</button>
   </div>
 
