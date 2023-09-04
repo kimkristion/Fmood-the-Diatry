@@ -18,63 +18,62 @@
       Your browser does not support this video format.
     </video>
   </div> -->
-  <header class="grid-header">
-    <a href="#"><img alt="logo" class ="logo" src="./assets/images/logo.png"></a>
-    <nav class="navbar">
-      <ul>
-        <li class="nav-item"><a href="#">Home</a></li>
-        <li class="nav-item"><a href="#">Journal</a></li>
-        <li class="nav-item"><a href="#">About</a></li>
-        <li class="nav-item"><a href="#">Resources</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="grid">
+    <header class="grid-header">
+      <a href="#"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
+      <nav class="navbar">
+        <ul>
+          <li class="nav-item"><a href="#">Home</a></li>
+          <li class="nav-item"><a href="#">Journal</a></li>
+          <li class="nav-item"><a href="#">About</a></li>
+          <li class="nav-item"><a href="#">Resources</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <div class="grid-left-side">
-    <div class="journal-content">
+  <div class="grid-left-side"></div>
 
+    <div class="grid-content">
+      <h1>FMood, Food Journal</h1>
+      <h3>Reflect on your eating habits</h3>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate laudantium sapiente odit sed laboriosam,
+        voluptatum corrupti magni obcaecati. Fugiat quas cumque laboriosam praesentium vel, voluptas eveniet recusandae
+        necessitatibus consequuntur sunt!
+      </p>
+      <button id="modal" onclick="openModal()">
+        Log Your Meal
+      </button>
     </div>
-  </div>
 
-  <div class="grid-content">
-    <h1>FMood, Food Journal</h1>
-    <h3>Reflect on your eating habits</h3>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate laudantium sapiente odit sed laboriosam,
-      voluptatum corrupti magni obcaecati. Fugiat quas cumque laboriosam praesentium vel, voluptas eveniet recusandae
-      necessitatibus consequuntur sunt!
-    </p>
-    <button id="modal" onclick="openModal()">
-      Log Your Meal
-    </button>
-  </div>
-
-  <div id="themodal" class="modal" style="display: none;">
+  <div id="themodal" class="modal" style="display: none">
     <div class="thecontent">
-        <div class="left-side">
-          <h2 id="day"></h2>
-          <span id="hour"></span>
-          </div>
-        <div class="right-side">
-          <form>
-            <input type="text" placeholder="what did you eat..." id="foodinput">
-            <input type="text" placeholder="how did you feel while eating..." id="feelWhile">
-            <input type="text" placeholder="how did you feel after eating..." id="feelAfter">
-            <input type="text" placeholder="would you eat that food again..." id="conclusion">
-            <button id="modalSubmit">Sumbit</button>
-          </form>
-        </div>
-        <h3 onclick="closeModal()" class="closeBtn">&times</h3>
+        <h3 onclick="closeModal()" style="float: right; cursor: pointer;">&times</h3>
+        <h2>Todays Feelings</h2>
+        <input type="text" id="foodInput" placeholder="what did you eat?">
+        <br><br>
+        <hr>
+        <h2>How did I feel after this: </h2>
+        <input type="text" id="foodInput">
+        <br><br>
+        <button onclick="sumbitFood()">Enter</button>
+    </div>
+</div>
+
+
+
+    <div class="grid-right-side">
+      <h2>Did you know?</h2>
+      <div id="food-fact-container">
+        <p id="food-fact-content"></p>
       </div>
     </div>
+  </div>
+  <div class="journal-container">
+    <h2 class="journal-header">Journal Section</h2>
 
-
-
-
-  <div class="grid-right-side">
-    <h2>Did you know?</h2>
-    <div id="food-fact-container">
-      <p id="food-fact-content"></p>
-    </div>
+    <div class="journal-time">Log Time</div>
+    <div class="journal-meal">Meal Entry</div>
+    <div class="journal-mood">Mood Entry</div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
