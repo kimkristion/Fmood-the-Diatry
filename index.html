@@ -30,7 +30,11 @@
     </nav>
   </header>
 
-  <div class="grid-left-side"></div>
+  <div class="grid-left-side">
+    <div class="journal-content">
+
+    </div>
+  </div>
 
   <div class="grid-content">
     <h1>FMood, Food Journal</h1>
@@ -44,19 +48,25 @@
     </button>
   </div>
 
-  <div id="themodal" class="modal" style="display: none">
+  <div id="themodal" class="modal" style="display: none;">
     <div class="thecontent">
-        <h3 onclick="closeModal()" style="float: right; cursor: pointer;">&times</h3>
-        <h2>Todays Feelings</h2>
-        <input type="text" id="foodInput" placeholder="what did you eat?">
-        <br><br>
-        <hr>
-        <h2>How did I feel after this: </h2>
-        <input type="text" id="foodInput">
-        <br><br>
-        <button onclick="sumbitFood()">Enter</button>
+        <div class="left-side">
+          <h2 id="day"></h2>
+          <span id="hour"></span>
+          </div>
+        <div class="right-side">
+          <form>
+            <input type="text" placeholder="what did you eat..." id="foodinput">
+            <input type="text" placeholder="how did you feel while eating..." id="feelWhile">
+            <input type="text" placeholder="how did you feel after eating..." id="feelAfter">
+            <input type="text" placeholder="would you eat that food again..." id="conclusion">
+            <button id="modalSubmit">Sumbit</button>
+          </form>
+        </div>
+        <h3 onclick="closeModal()" class="closeBtn">&times</h3>
+      </div>
     </div>
-</div>
+
 
 
 

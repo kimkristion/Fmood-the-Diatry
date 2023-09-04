@@ -10,6 +10,139 @@
   box-sizing: border-box;
 }
 
+#themodal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  max-width: 760px;
+  height: 100%;
+  max-height: 760px;;
+  transform: translate(-50%, -50%);
+  background-color: rgb(16, 110, 113);
+  border-radius: .5rem;
+}
+
+.thecontent {
+  display: flex;
+}
+
+
+.left-side {
+  flex: 1;
+  padding: 1rem;
+  background:  linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565)), url(../images/modal.jpg);
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+  height: 760px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+}
+
+.right-side {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.right-side input {
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  padding: 12px 20px;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  width: 100%;
+  
+  
+}
+
+
+#foodinput { 
+  background-position: 1%;
+  background-image: url(../images/food.jpg);
+  padding-left: 1rem;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  padding: 12px 20px 12px 40px;
+  
+}
+
+#feelWhile {
+  background-position: 1%;
+  background-image: url(../images/thoughts.jpg);
+  padding-left: 1rem;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  padding: 12px 20px 12px 40px;
+
+}
+
+#feelAfter {
+  background-position: 1%;
+  background-image: url(../images/feeling.png);
+  padding-left: 1rem;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  padding: 12px 20px 12px 40px;
+}
+
+#conclusion {
+  background-position: 1%;
+  background-image: url(../images/foodforthought.png);
+  padding-left: 1rem;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  padding: 12px 20px 12px 40px;
+}
+
+#modalSubmit {
+  box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19) ;
+  width: 50%;
+  display: block;
+  justify-content: center;
+  margin-left: 25%;
+  padding: 1rem;
+  text-transform: lowercase;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.closeBtn {
+  padding-right: .5rem;
+
+}
+
+.rank {
+  color: white;
+  cursor: pointer;
+}
+
+.rank:hover,
+.rank:active {
+  color: gold;
+}
+
+.right-side {
+  flex: 1;
+  padding: 1rem;
+}
+
+.closeBtn {
+  cursor: pointer;
+}
+
+.thecontent span {
+  padding: 1rem;
+}
+
+
+
 body {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
