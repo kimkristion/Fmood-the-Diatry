@@ -1,29 +1,11 @@
+// Global variables
+const apiKey = 'AIzaSyDzb5CInF5N1TKf_LYcclk2PyZoknQ5EmA';
 const timeNow = dayjs();
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
-
-
-// add <span id="hour"></span> to include the time of day
-var timeLog = document.getElementById("hour");
-timeLog.innerHTML = timeHour + ":" + timeMinutes;
-
-
-function openModal() {
-    document.getElementById("themodal").style.display="block";
-    document.getElementById("modal").style.display="none";
-}
-
-
-function closeModal() {
-    document.getElementById("themodal").style.display="none";
-    document.getElementById("modal").style.display="block";
-   
-}
-
-
-
-// Global variables
-var foodFacts = [
+const foodInput = document.getElementById('foodInput');
+const feelingsInput = document.getElementById('feelingsInput');
+const foodFacts = [
 	{
 		fact: "Bananas are the world's oldest fruit and date back to over 10,000 years ago.",
 	},
@@ -33,7 +15,7 @@ var foodFacts = [
 	},
 
 	{
-		fact: 'Some food dyes and vanilla extracts are made from crushed up bugs and beaver secreations.',
+		fact: 'Some food dyes and vanilla extracts are made from crushed up bugs and beaver secretions.',
 	},
 
 	{
@@ -69,7 +51,7 @@ var foodFacts = [
 	},
 
 	{
-		fact: 'Crackers are worse for your teeth than candy is because they contain various kinds of acid.',
+		fact: 'Crackers are worse for your teeth than candy because they contain numerous types of acid.',
 	},
 
 	{
@@ -83,11 +65,43 @@ var foodFacts = [
 	{
 		fact: 'Pinapple contains an enzyme called bromelain that literally eats your mouth.',
 	},
+
+	{
+		fact: 'Apples are more effective at waking you up than coffee.',
+	},
+
+	{
+		fact: 'Eating a healthy diet can imporve your mood and energy levels.',
+	},
+
+	{
+		fact: 'Drink water.',
+	},
+
+	{
+		fact: 'Eating healthy will help you sleep better.',
+	},
+
+	{
+		fact: 'Honey never spoils.',
+	},
+
+	{
+		fact: '"Low-Fat" typically means "sugar added" and it should be considered an unhealthy choice.',
+	},
+
+	{
+		fact: 'Almonds are part of the peach family.',
+	},
+
+	{
+		fact: 'Trans fats have been linked to all kinds of chronic diseases and should be avoided.',
+	},
 ];
 
 // Function randomly generates fact from foodFacts object
-function foodFact() {
-	let foodFactContent = document.getElementById('food-fact-content'); 
+function coolFoodInfo() {
+	let foodFactContent = document.getElementById('food-fact-content');
 
 	// adds slide-out class to html content
 	foodFactContent.classList.add('slide-out');
@@ -105,38 +119,52 @@ function foodFact() {
 		foodFactContent.classList.add('slide-in');
 	}, 1000);
 
-		setTimeout(() => {
-			foodFactContent.classList.remove('slide-in', 'slide-out');
-		}, 2000);
+	setTimeout(() => {
+		foodFactContent.classList.remove('slide-in', 'slide-out');
+	}, 2000);
 
-
-	setTimeout(foodFact, 6000);
+	setTimeout(coolFoodInfo, 6000);
 }
 
-foodFact();
+function openModal() {
+	document.getElementById('openModal');
+	let modalContainer = document.getElementById('modalContainer');
+	modalContainer.style.display = 'block';
 
-// document.addEventListener('DOMContentLoaded', function() {
-// 	let video = document.getElementById('logo-vid');
-// 	let videoContainer = document.getElementById('page-load-container');
+	let modalContent = modalContainer.querySelector('.modal-content');
+	modalContent.style.transform = 'translate(-50%, -50%)';
+};
 
-// 	video.addEventListener('ended', function() {
-// 		video.pause();
-// 		fadeOut(videoContainer);
-// 	});
-// });
+function closeModal() {
+	let modalContainer = document.getElementById('modalContainer');
+	modalContainer.style.display = 'none';
 
-// function fadeOut(element) {
-// 	let opacity = 1;
-// 	let interval = setInterval(function() {
-// 		if (opacity > 0) {
-// 			opacity -= 0.1;
-// 			element.style.opacity = opacity;
-// 		} else {
-// 			clearInterval(interval);
-// 			element.style.display = 'none';
-// 		}
-// 	}, 50);
+	let modalContent = modalContainer.querySelector('.modal-content');
+	modalContent.style.display = 'none';
+};
 
-// 	foodFact();
-// };
+function submitEntry(event) {
+	event.preventDefault();
+
+	const food = foodInput.value;
+	const feelings = feelingsInput.value;
+
+	closeModal();
+};
+
+window.addEventListener('load', function (event) {
+	event.preventDefault();
+	coolFoodInfo();
+
+	document.addEventListener('click', function(event) {
+		let modalContainer = document.getElementById('modalContainer');
+	
+		if (!modalContainer.contains(event.target)) {
+			closeModal();
+		}
+	});
+});
+
+
+
 

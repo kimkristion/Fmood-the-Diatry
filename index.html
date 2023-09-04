@@ -4,20 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--link rel="stylesheet" type="text/css" href="./assets/css/style.css"-->
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
   <title>FMood</title>
 </head>
 
 <body>
 
-
-  <!-- <div id="page-load-container">
-    <video id="logo-vid" autoplay muted>
-      <source src="./assets/video/FMood.mp4" type="video/mp4">
-      Your browser does not support this video format.
-    </video>
-  </div> -->
   <div class="grid">
     <header class="grid-header">
       <a href="#"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
@@ -40,26 +32,10 @@
         voluptatum corrupti magni obcaecati. Fugiat quas cumque laboriosam praesentium vel, voluptas eveniet recusandae
         necessitatibus consequuntur sunt!
       </p>
-      <button id="modal" onclick="openModal()">
+      <button id="openModal" onclick="openModal()">
         Log Your Meal
       </button>
     </div>
-
-    <div id="themodal" class="modal" style="display: none">
-      <div class="thecontent">
-        <h3 onclick="closeModal()" style="float: right; cursor: pointer;">&times</h3>
-        <h2>Todays Feelings</h2>
-        <input type="text" id="foodInput" placeholder="what did you eat?">
-        <br><br>
-        <hr>
-        <h2>How did I feel after this: </h2>
-        <input type="text" id="foodInput">
-        <br><br>
-        <button onclick="sumbitFood()">Enter</button>
-      </div>
-    </div>
-
-
 
     <div class="grid-right-side">
       <h2>Did you know?</h2>
@@ -68,6 +44,7 @@
       </div>
     </div>
   </div>
+
   <div class="journal-container">
     <h2 class="journal-header">Journal Section</h2>
 
@@ -79,6 +56,17 @@
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
   <script src="./assets/js/script.js"></script>
+
+  <div class="modal-container" id="modalContainer">
+    <div class="modal-content">
+      <h2 onclick="closeModal()" style="float: right; cursor: pointer;">&times;</h2>
+      <h3>Today's Feelings</h3>
+      <input type="text" id="foodInput" name="food" placeholder="Enter your meal...">
+      <h3>How did I feel after this: </h3>
+      <input type="text" id="feelingsInput" name="feelings" placeholder="Enter how you felt after you ate...">
+      <button type="submit" onclick="sumbitEntry()">Enter</button>
+  </div>
+
 
 
 </body>
