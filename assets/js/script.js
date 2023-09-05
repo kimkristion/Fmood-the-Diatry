@@ -8,6 +8,9 @@ const timeMinutes = timeNow.format('mm');
 var timeLog = document.getElementById("hour");
 timeLog.innerHTML = timeHour + ":" + timeMinutes;
 
+var daybyname = document.getElementById("day")
+daybyname.innerHTML = day;
+
 
 function openModal() {
     document.getElementById("themodal").style.display="block";
@@ -144,22 +147,6 @@ function coolFoodInfo() {
 	setTimeout(coolFoodInfo, 6000);
 }
 
-function openModal() {
-	document.getElementById('openModal');
-	let modalContainer = document.getElementById('modalContainer');
-	modalContainer.style.display = 'block';
-
-	let modalContent = modalContainer.querySelector('.modal-content');
-	modalContent.style.transform = 'translate(-50%, -50%)';
-};
-
-function closeModal() {
-	let modalContainer = document.getElementById('modalContainer');
-	modalContainer.style.display = 'none';
-
-	let modalContent = modalContainer.querySelector('.modal-content');
-	modalContent.style.display = 'none';
-};
 
 function submitEntry(event) {
 	event.preventDefault();

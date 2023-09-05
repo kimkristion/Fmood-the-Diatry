@@ -57,22 +57,31 @@
     <div class="journal-mood">Mood Entry</div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-  <script src="./assets/js/script.js"></script>
 <!--Modal window container-->
-  <div class="modal-container" id="modalContainer">
-    <div class="modal-content">
-      <h2 onclick="closeModal()" style="float: right; cursor: pointer;">&times;</h2>
-      <h3>Today's Feelings</h3>
-      <input type="text" id="foodInput" name="food" placeholder="Enter your meal...">
-      <h3>How did I feel after this: </h3>
-      <input type="text" id="feelingsInput" name="feelings" placeholder="Enter how you felt after you ate...">
-      <button type="submit" onclick="sumbitEntry()">Enter</button>
-  </div>
+  <div id="themodal" class="modal" style="display: none;">
+    <div class="thecontent">
+        <div class="left-side">
+          <h2 id="day"></h2>
+          <span id="hour"></span>
+          </div>
+        <div class="right-side">
+          <form>
+            <input type="text" placeholder="what did you eat..." id="foodinput">
+            <input type="text" placeholder="how did you feel while eating..." id="feelWhile">
+            <input type="text" placeholder="how did you feel after eating..." id="feelAfter">
+            <input type="text" placeholder="would you eat that food again..." id="conclusion">
+            <button id="modalSubmit" onclick="sumbitEntry()">Sumbit</button>
+          </form>
+        </div>
+        <h3 onclick="closeModal()" class="closeBtn">&times</h3>
+      </div>
+    </div>
 
 
-
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+  integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
+  
 </body>
 
 </html>
