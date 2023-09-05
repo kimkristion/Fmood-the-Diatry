@@ -1,11 +1,36 @@
 // Global variables
 const apiKey = 'AIzaSyDzb5CInF5N1TKf_LYcclk2PyZoknQ5EmA';
 const timeNow = dayjs();
+
+const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
-const foodInput = document.getElementById('foodInput');
-const feelingsInput = document.getElementById('feelingsInput');
-const foodFacts = [
+
+
+// add <span id="hour"></span> to include the time of day
+var timeLog = document.getElementById("hour");
+timeLog.innerHTML = timeHour + ":" + timeMinutes;
+
+var daybyname = document.getElementById("day")
+daybyname.innerHTML = day;
+
+
+function openModal() {
+    document.getElementById("themodal").style.display="block";
+    document.getElementById("modal").style.display="none";
+}
+
+
+function closeModal() {
+    document.getElementById("themodal").style.display="none";
+    document.getElementById("modal").style.display="block";
+   
+}
+
+
+
+// Global variables
+var foodFacts = [
 	{
 		fact: "Bananas are the world's oldest fruit and date back to over 10,000 years ago.",
 	},
@@ -125,22 +150,6 @@ function coolFoodInfo() {
 	setTimeout(coolFoodInfo, 6000);
 }
 
-function openModal() {
-	document.getElementById('openModal');
-	let modalContainer = document.getElementById('modalContainer');
-	modalContainer.style.display = 'block';
-
-	let modalContent = modalContainer.querySelector('.modal-content');
-	modalContent.style.transform = 'translate(-50%, -50%)';
-};
-
-function closeModal() {
-	let modalContainer = document.getElementById('modalContainer');
-	modalContainer.style.display = 'none';
-
-	let modalContent = modalContainer.querySelector('.modal-content');
-	modalContent.style.display = 'none';
-};
 
 function submitEntry(event) {
 	event.preventDefault();
