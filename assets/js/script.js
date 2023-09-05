@@ -98,7 +98,6 @@ const foodFacts = [
 		fact: 'Trans fats have been linked to all kinds of chronic diseases and should be avoided.',
 	},
 ];
-
 // Function randomly generates fact from foodFacts object
 function coolFoodInfo() {
 	let foodFactContent = document.getElementById('food-fact-content');
