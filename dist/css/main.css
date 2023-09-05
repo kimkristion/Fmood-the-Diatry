@@ -103,11 +103,12 @@ nav {
 }
 
 .logo {
+  margin-right: 0px;
   background-position: center;
   background-size: cover;
   height: 120px;
   width: 200px;
-  background-repeat: no-repeat;
+  display: flex;
 }
 
 .navbar {
@@ -142,10 +143,17 @@ nav {
   grid-area: content;
   flex-direction: column;
   background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565)), url(../assets/images/83bdc8cd2cfd042cf515398935c12306.jpeg) no-repeat center/cover;
-  margin-top: 20px;
+  margin-top: 10px;
   padding-left: 240px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: 2px solid ghostwhite;
+  gap: 5px;
+  overflow: hidden;
+}
+.grid-content img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .journal-header {
@@ -163,7 +171,15 @@ nav {
   margin: 0 1.5rem;
 }
 
-.journal-time, .journal-meal, .journal-mood {
+.journal-time {
+  border: 0.5px solid ghostwhite;
+}
+
+.journal-meal {
+  border: 0.5px solid ghostwhite;
+}
+
+.journal-mood {
   border: 0.5px solid ghostwhite;
 }
 
@@ -187,7 +203,7 @@ nav {
   animation-name: slideOut;
 }
 
-.button {
+.button:focus {
   display: inline-block;
   padding: 4px 4px;
   background-color: #106E71;
@@ -196,7 +212,6 @@ nav {
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
-
 .button:hover {
   background-color: black;
 }

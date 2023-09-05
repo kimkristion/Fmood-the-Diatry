@@ -12,11 +12,16 @@ $base : ghostwhite;
 $second-base: black;
 $third-base:  #106E71;
 $bright: #C1272D;
+$shaddy: #3C4142;
 
 @font-face {
     font-family: "Paralucent";
     src: url(https://fonts.adobe.com/fonts/paralucent#fonts-section);
 };
+
+@mixin solid-border {
+    border: 0.5px solid $base;
+}
 
 @keyframes slideIn {
     0% {
@@ -72,6 +77,8 @@ $width: (
     'wide-ish': 200px,
     'wider': 300px,
 );
+
+$base-url: 'assets/images/83bdc8cd2cfd042cf515398935c12306.jpeg';
 
 body {
     background-color: $third-base;
@@ -157,11 +164,12 @@ nav {
 //. CONTENT
 
 .logo {
+    margin-right: 0px;
     background-position: center;
     background-size: cover;
     height: map-get($height, teen);
     width: map-get($width, wide-ish);
-    background-repeat: no-repeat;
+    display: flex;
 }
 .navbar {
     display: flex;
@@ -195,10 +203,18 @@ nav {
     grid-area: content;
     flex-direction: column;
     background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565)), url(../assets/images/83bdc8cd2cfd042cf515398935c12306.jpeg) no-repeat center / cover;
-    margin-top: 20px;
+    margin-top: 10px;
     padding-left: 240px;
-    margin-bottom: 20px;
-    border: 2px solid $base
+    margin-bottom: 10px;
+    border: 2px solid $base;
+    gap: 5px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height:auto;
+        display: block;
+    }
 };
 
 .journal-header {
@@ -221,8 +237,14 @@ nav {
     margin: 0 1.5rem;
 };
 
-.journal-time, .journal-meal, .journal-mood {
-    border: 0.5px solid $base;
+.journal-time {
+    @include solid-border();
+}
+.journal-meal {
+    @include solid-border();
+}
+.journal-mood {
+    @include solid-border();
 };
 
 .journal-time {
@@ -246,19 +268,19 @@ nav {
 };
 
 
+
+
 .button {
-    display: inline-block;
-    padding: 4px 4px;
-    background-color: $third-base;
-    color: $base;
-    border: none;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-};
-  
-.button:hover {
-    background-color: $second-base;
-};
+    &:focus { display: inline-block;
+        padding: 4px 4px;
+        background-color: $third-base;
+        color: $base;
+        border: none;
+        font-size: 16px;
+        transition: background-color 0.3s ease;}
+
+    &:hover { background-color: $second-base;}    
+}
 
 .footer {
     text-align: center;
