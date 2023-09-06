@@ -102,13 +102,23 @@ const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
 var modalsubmit = document.getElementById('modalSubmit');
 
-modalsubmit.addEventListener('click', form);
-function form(event) {
-	event.preventDefault();
-	var mealLog;
-	var feelLog;
-	closeModal();
+function captureInputs() {
+	const currentTime = dayjs();
+	const formattedTime = currentTime.format('MMM:D');
+	const foodInputValue = document.getElementById('foodinput').value;
+	console.log(foodInputValue);
+
+
+	console.log('Current Time:', formattedTime);
+	console.log('Food Input:', foodInputValue);
 }
+
+document.getElementById('modalSubmit').addEventListener('click', function (event) {
+	event.preventDefault();
+	captureInputs();
+
+	closeModal();
+});
 
 // add <span id="hour"></span> to include the time of day
 var timeLog = document.getElementById('hour');
