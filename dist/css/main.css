@@ -6,14 +6,40 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Paralucent";
+  src: url(https://fonts.adobe.com/fonts/paralucent#fonts-section);
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
 body {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: "header header header header" "week random random pages" "week random random pages" "week goals goals pages" "week goals goals pages";
+  background-color: #106E71;
   font-size: 1.7rem;
   line-height: 1.5rem;
   height: 120px;
+  color: ghostwhite;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 8fr 1fr;
+  grid-template-areas: "header header header header" "left content content right" "left content content right" "left content content right" "left content content right";
+  gap: 20px;
 }
 
 .grid-header {
@@ -21,65 +47,206 @@ body {
   align-items: center;
   justify-content: center;
   grid-area: header;
-  background: powderblue;
   color: ghostwhite;
+  font-family: Arial;
+}
+
+li {
+  display: inline-block;
+  font-size: 1.3rem;
+  padding: 0 1.3rem;
+  list-style: none;
+  transition: 300ms ease-in-out;
+}
+
+li:hover {
+  text-decoration: underline;
+}
+
+p {
+  width: 500px;
+  font-family: "Anton Regular";
 }
 
 h1 {
   font-size: 3rem;
   line-height: 3.5rem;
+  font-family: Arial;
 }
 
 h2 {
   font-size: 2.5rem;
   line-height: 3rem;
+  font-family: Arial;
 }
 
 h3 {
   font-size: 1.7rem;
   line-height: 2.5rem;
+  font-family: Arial;
 }
 
-.grid-side {
+h4 {
+  font-size: 1.3rem;
+  font-weight: lighter;
+  font-family: Arial;
+}
+
+a {
+  color: ghostwhite;
+  text-decoration: none;
+}
+
+nav {
+  width: 100%;
+  height: 104px;
+}
+
+.logo {
+  margin-right: 0px;
+  background-position: center;
+  background-size: cover;
+  height: 120px;
+  width: 200px;
+  display: flex;
+}
+
+.navbar {
+  display: flex;
+  border-bottom: 2px solid ghostwhite;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.grid-left-side {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  grid-area: week;
-  background: navy;
-  color: ghostwhite;
+  grid-area: left;
 }
 
-.grid-random-facts {
+.grid-right-side {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  grid-area: random;
-  background: grey;
-  color: ghostwhite;
+  grid-area: right;
+  flex-direction: column;
+  width: 300px;
 }
 
-.grid-main {
+.grid-content {
   display: flex;
-  align-items: center;
   justify-content: center;
-  grid-area: goals;
-  background: black;
-  color: ghostwhite;
+  grid-area: content;
+  flex-direction: column;
+  background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565)), url(../assets/images/83bdc8cd2cfd042cf515398935c12306.jpeg) no-repeat center/cover;
+  margin-top: 10px;
+  padding-left: 240px;
+  margin-bottom: 10px;
+  border: 2px solid ghostwhite;
+  gap: 5px;
+  overflow: hidden;
+}
+.grid-content img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.round-button {
+.journal-header {
+  grid-area: jheader;
+  border: 0.5px solid ghostwhite;
+  text-align: center;
+}
+
+.journal-container {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "jheader jheader jheader jheader" "jleft jmeal jmood jmood" "jleft jmeal jmood jmood" "jleft jmeal jmood jmood" "jleft jmeal jmood jmood ";
+  gap: 10px;
+  margin: 0 1.5rem;
+}
+
+.journal-time {
+  border: 0.5px solid ghostwhite;
+}
+
+.journal-meal {
+  border: 0.5px solid ghostwhite;
+}
+
+.journal-mood {
+  border: 0.5px solid ghostwhite;
+}
+
+.journal-time {
+  grid-area: jleft;
+}
+
+.journal-meal {
+  grid-area: jmeal;
+}
+
+.journal-mood {
+  grid-area: jmood;
+}
+
+.slide-in {
+  animation-name: slideIn;
+}
+
+.slide-out {
+  animation-name: slideOut;
+}
+
+.button:focus {
   display: inline-block;
-  padding: 30px 40px;
-  background-color: powderblue;
-  color: navy;
+  padding: 4px 4px;
+  background-color: #106E71;
+  color: ghostwhite;
   border: none;
-  border-radius: 50%;
-  cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
+.button:hover {
+  background-color: black;
+}
 
-.round-button:hover {
-  background-color: red;
+.footer {
+  text-align: center;
+}
+
+#modal {
+  margin-top: 30px;
+  width: 200px;
+  border-radius: 0.5px;
+  cursor: pointer;
+}
+
+#food-fact-content {
+  position: relative;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  font-size: 1.3rem;
+  width: 210px;
+  justify-self: center;
+  align-self: center;
+}
+
+#food-fact-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  margin-top: 30px;
+  padding: 1.5rem;
+  height: 230px;
+  background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
+  overflow-x: hidden;
+  border: 0.5px solid ghostwhite;
 }
