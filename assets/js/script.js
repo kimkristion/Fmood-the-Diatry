@@ -4,6 +4,7 @@ const timeNow = dayjs();
 const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
+const AMPM = timeNow.format('a')
 var modalsubmit = document.getElementById('modalSubmit')
 
 
@@ -21,15 +22,6 @@ var timeLog = document.getElementById("hour");
 timeLog.innerHTML = timeHour + ":" + timeMinutes + AMPM;
 var daybyname = document.getElementById("day")
 daybyname.innerHTML = day;
-
-// modal input and journal fields 
-var modalsubmit = document.getElementById('modalSubmit')
-const foodinput = document.getElementById('foodinput')
-const journalmealentry = document.querySelector('.journal-meal');
-const thetime = document.getElementById('hour')
-const journaltime = document.querySelector('.journal-time')
-const moodinput = document.getElementById('feelWhile')
-const journalmoodentry = document.querySelector('.journal-mood')
 
 
 
