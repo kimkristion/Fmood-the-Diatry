@@ -1,6 +1,5 @@
 // Global variables
 var foodFacts = [
-
 	{
 		fact: "Bananas are the world's oldest fruit and date back to over 10,000 years ago.",
 	},
@@ -232,22 +231,31 @@ function coolFoodInfo() {
 	setTimeout(coolFoodInfo, 6000);
 }
 
+
+function submitEntry(event) {
+	event.preventDefault();
+	console.log('is this working?');
+	
+
+	const food = foodInput.value;
+	const feelings = feelingsInput.value;
+
+	closeModal();
+};
+
 window.addEventListener('load', function (event) {
 	event.preventDefault();
 	coolFoodInfo();
 
-	document.addEventListener('click', function (event) {
+	document.addEventListener('click', function(event) {
 		let modalContainer = document.getElementById('modalContainer');
-
-
-		if (!modalContainer.contains(event.target)) {
-			closeModal();
-		}
-
 	
 		// if (!modalContainer.contains(event.target)) {
 		// 	closeModal();
 		// }
-
 	});
 });
+
+
+
+
