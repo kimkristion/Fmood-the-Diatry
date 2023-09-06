@@ -18,44 +18,12 @@ body {
   height: 100vh;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 1fr 8fr 1fr;
-  grid-template-areas:
-    "header header header header"
-    "left content content right"
-    "left content content right"
-    "left content content right"
-    "left content content right";
-  gap: 20px;
-}
-
-#page-load-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-}
-
-#logo-vid {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-  height: auto;
-}
-
 nav {
   width: 100%;
   height: 104px;
 }
 
-.navbar,
-.resources-navbar {
+.navbar {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -102,8 +70,9 @@ h3 {
   line-height: 2.5rem;
 }
 
-p {
-  width: 500px;
+h4 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
 }
 
 .grid {
@@ -118,7 +87,7 @@ p {
   "left content content right";
   gap: 20px;
   height: 100vh;
-  padding-bottom: 30px;
+  margin-bottom: 100px;
 }
 
 .grid-header {
@@ -131,9 +100,16 @@ p {
 .grid-left-side {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   grid-area: left;
+  margin-left: 12px;
+}
+
+.grid-left-side p {
+  text-align: center;
+  padding-bottom: 14px;
 }
 
 .grid-content {
@@ -220,30 +196,86 @@ p {
     "jleft jmeal jmood jmood"
     "jleft jmeal jmood jmood ";
   gap: 10px;
-  margin: 0 1.5rem;
+  height: 100vh;
+  margin: 2rem 1.3rem;
 }
 
 .journal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   grid-area: jheader;
   border: 2px solid white;
 }
 
+.time-header,
+.log-header,
+.mood-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+#foodInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
+  font-size: 1.3rem;
+  line-height: 1.2rem;
+  margin-top: 30px;
+  padding-bottom: 20px;
+  border: 2px solid var(--font-color);
+  height: 200px;
+  width: 210px;
+}
+
+.food-info {
+  display: inline-block;
+  margin-top: 20px;
+  line-height: 10px;
+  padding: 0 16px;
+}
+
 .journal-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   grid-area: jleft;
   border: 2px solid white;
+}
 
+.journal-time p,
+.journal-mood p {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#foodInput {
+  padding: 0.5rem 1rem;
+  width: 80%;
 }
 
 .journal-meal {
+  display: block;
   grid-area: jmeal;
   border: 2px solid white;
+}
 
+#nutrition-button {
+  display: block;
+  margin-top: 8px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
 
 .journal-mood {
   grid-area: jmood;
   border: 2px solid white;
-
 }
 
 @keyframes slideIn {
