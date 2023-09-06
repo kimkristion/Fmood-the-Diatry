@@ -1,51 +1,4 @@
 // Global variables
-
-const nutritionId = '57cd6407';
-const nutritionKey = '53f48a56cd74f814fc87643c36d779cd';
-const foodInput = document.getElementById('foodInput');
-const feelingsInput = document.getElementById('feelingsInput');
-
-
-
-const timeNow = dayjs();
-const day = timeNow.format('dddd');
-const timeHour = timeNow.format('h');
-const timeMinutes = timeNow.format('mm');
-var modalsubmit = document.getElementById('modalSubmit')
-
-
-modalsubmit.addEventListener('click', form)
-function form(event) {
-    event.preventDefault();
-    var timeLog;
-	var mealLog;
-	var feelLog;
-    closeModal();
-}
-
-// add <span id="hour"></span> to include the time of day
-var timeLog = document.getElementById("hour");
-timeLog.innerHTML = timeHour + ":" + timeMinutes;
-
-var daybyname = document.getElementById("day")
-daybyname.innerHTML = day;
-
-
-function openModal() {
-    document.getElementById("themodal").style.display="block";
-    // document.getElementById("modal").style.display="none";
-}
-
-
-function closeModal() {
-    document.getElementById("themodal").style.display="none";
-    // document.getElementById("modal").style.display="block";
-   
-}
-
-
-
-// Global variables
 var foodFacts = [
 
 	{
@@ -140,11 +93,47 @@ var foodFacts = [
 		fact: 'Trans fats have been linked to all kinds of chronic diseases and should be avoided.',
 	},
 ];
+const nutritionId = '57cd6407';
+const nutritionKey = '53f48a56cd74f814fc87643c36d779cd';
+const foodInput = document.getElementById('foodInput');
+const feelingsInput = document.getElementById('feelingsInput');
+const timeNow = dayjs();
+const day = timeNow.format('dddd');
+const timeHour = timeNow.format('h');
+const timeMinutes = timeNow.format('mm');
+var modalsubmit = document.getElementById('modalSubmit')
+
+
+modalsubmit.addEventListener('click', form)
+function form(event) {
+    event.preventDefault();
+	var mealLog;
+	var feelLog;
+    closeModal();
+}
+
+// add <span id="hour"></span> to include the time of day
+var timeLog = document.getElementById("hour");
+timeLog.innerHTML = timeHour + ":" + timeMinutes;
+
+var daybyname = document.getElementById("day")
+daybyname.innerHTML = day;
+
+
+function openModal() {
+    document.getElementById("themodal").style.display="block";
+}
+
+
+function closeModal() {
+    document.getElementById("themodal").style.display="none";
+}
+
 
 
 function nutritionData(food) {
 
-	var nutritionUrl = `https://api.edamam.com/api/nutrition-data?app_id=${nutritionId}&app_key=${nutritionKey}&nutrition-type=logging&ingr=${food};`
+	var nutritionUrl = `https://api.edamam.com/api/nutrition-data?app_id=${nutritionId}&app_key=${nutritionKey}&nutrition-type=logging&ingr=${food}`;
 
 	// Edamam's API for nutrition information
 	fetch(nutritionUrl)
