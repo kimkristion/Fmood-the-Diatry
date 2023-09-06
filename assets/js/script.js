@@ -1,12 +1,27 @@
 // Global variables
-const apiKey = 'AIzaSyDzb5CInF5N1TKf_LYcclk2PyZoknQ5EmA';
-const timeNow = dayjs();
 
-// dayjs() variables
+const nutritionId = '57cd6407';
+const nutritionKey = '53f48a56cd74f814fc87643c36d779cd';
+const foodInput = document.getElementById('foodInput');
+const feelingsInput = document.getElementById('feelingsInput');
+
+
+
+const timeNow = dayjs();
 const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
-const AMPM = timeNow.format('a')
+var modalsubmit = document.getElementById('modalSubmit')
+
+
+modalsubmit.addEventListener('click', form)
+function form(event) {
+    event.preventDefault();
+    var timeLog;
+	var mealLog;
+	var feelLog;
+    closeModal();
+}
 
 // add <span id="hour"></span> to include the time of day
 var timeLog = document.getElementById("hour");
@@ -27,12 +42,12 @@ const journalmoodentry = document.querySelector('.journal-mood')
 
 function openModal() {
     document.getElementById("themodal").style.display="block";
-    document.getElementById("modal").style.display="none";
+    // document.getElementById("modal").style.display="none";
 }
 
 function closeModal() {
     document.getElementById("themodal").style.display="none";
-    document.getElementById("modal").style.display="block";
+    // document.getElementById("modal").style.display="block";
    
 }
 
@@ -53,6 +68,7 @@ modalsubmit.addEventListener('click', form)
 
 // Global variables
 var foodFacts = [
+
 	{
 		fact: "Bananas are the world's oldest fruit and date back to over 10,000 years ago.",
 	},
@@ -145,6 +161,82 @@ var foodFacts = [
 		fact: 'Trans fats have been linked to all kinds of chronic diseases and should be avoided.',
 	},
 ];
+
+
+function nutritionData(food) {
+
+	var nutritionUrl = `https://api.edamam.com/api/nutrition-data?app_id=${nutritionId}&app_key=${nutritionKey}&nutrition-type=logging&ingr=${food};`
+
+	// Edamam's API for nutrition information
+	fetch(nutritionUrl)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(`Network response was not ok. Status: ${response.status}`);
+			}
+			return response.json();
+		})
+		.then((data) => {
+			console.log(data);
+			foodInfoContainer(data);
+		})
+		.catch((error) => {
+			console.error(
+				'There was a problem with the fetch operation:',
+				error
+			);
+		});
+}
+
+function nutritionButtonClick(event) {
+	event.preventDefault();
+	const userFoodInput = foodInput.value.trim();
+
+	if(userFoodInput) {
+		let foodContainer = document.getElementById('foodInfoContainer');
+		foodContainer.innerHTML = '';
+		nutritionData(userFoodInput);
+	} else {
+		console.error('Food input is empty.');
+	}
+}
+
+const nutritionButton = document.getElementById('nutrition-button');
+nutritionButton.addEventListener('click', nutritionButtonClick);
+
+function foodInfoContainer(data) {
+	const foodContainer = document.getElementById('foodInfoContainer');
+
+	const foodLabel = data.ingredients[0].text.replace(/;/g, '').toUpperCase();
+	const calories = data.calories;
+	const protein = Math.floor(data.totalNutrients.PROCNT.quantity);
+	const carbs = Math.floor(data.totalNutrients.CHOCDF.quantity);
+	const fat = Math.floor(data.totalNutrients.FAT.quantity);
+
+	const foodContainerDiv = document.createElement('div');
+	foodContainerDiv.classList.add('food-info');
+
+	const foodLabelEl = document.createElement('p');
+	foodLabelEl.textContent = `Food: ${foodLabel}`;
+	const caloriesEl = document.createElement('p');
+	caloriesEl.textContent = `Calories: ${calories}`;
+	const proteinEl = document.createElement('p');
+	proteinEl.textContent = `Protein: ${protein}`;
+	const carbsEl = document.createElement('p');
+	carbsEl.textContent = `Carbs: ${carbs}`;
+	const fatEl = document.createElement('p');
+	fatEl.textContent = `Fat: ${fat}`;
+
+	foodContainerDiv.appendChild(foodLabelEl);
+	foodContainerDiv.appendChild(caloriesEl);
+	foodContainerDiv.appendChild(proteinEl);
+	foodContainerDiv.appendChild(carbsEl);
+	foodContainerDiv.appendChild(fatEl);
+
+	foodContainer.appendChild(foodContainerDiv);
+}
+
+
+
 // Function randomly generates fact from foodFacts object
 function coolFoodInfo() {
 	let foodFactContent = document.getElementById('food-fact-content');
@@ -172,8 +264,22 @@ function coolFoodInfo() {
 	setTimeout(coolFoodInfo, 6000);
 }
 
+window.addEventListener('load', function (event) {
+	event.preventDefault();
+	coolFoodInfo();
+
+	document.addEventListener('click', function (event) {
+		let modalContainer = document.getElementById('modalContainer');
 
 
+		if (!modalContainer.contains(event.target)) {
+			closeModal();
+		}
 
+	
+		// if (!modalContainer.contains(event.target)) {
+		// 	closeModal();
+		// }
 
-
+	});
+});
