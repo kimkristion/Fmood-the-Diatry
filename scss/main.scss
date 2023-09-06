@@ -6,54 +6,16 @@
   box-sizing: border-box;
 };
 
-$light : #0071BC;
-$dark : #F15A24;
+$light : powderblue;
+$dark : navy;
 $base : ghostwhite;
-$second-base: black;
-$third-base:  #106E71;
-$bright: #C1272D;
-$shaddy: #3C4142;
-
-@font-face {
-    font-family: "Paralucent";
-    src: url(https://fonts.adobe.com/fonts/paralucent#fonts-section);
-};
-
-@mixin solid-border {
-    border: 0.5px solid $base;
-}
-
-@keyframes slideIn {
-    0% {
-      transform: translateX(120%);
-    }
-  
-    100% {
-      transform: translateX(0);
-    }
-};
-  
-@keyframes slideOut {
-    0% {
-      transform: translateX(0);
-    }
-  
-    100% {
-      transform: translateX(-120%);
-    }
-};
-
+$second-base: grey;
+$third-base: black;
+$bright: red;
 $font-size: (
-    'tiny': 1.3rem,
     'small': 1.7rem,
     'regular' : 2.5rem,
     'medium' : 3rem,
-);
-
-$font-family: (
-    'regular': Arial,
-    'narrow': 'Anton Regular',
-    'read': 'Centuary Gothic',
 );
 
 $line-height: (
@@ -66,39 +28,27 @@ $line-height: (
 
 $height: (
     'toddler': 80px,
-    'tween': 100px,
     'teen': 120px,
-    'young-adult': 600px,
     'adult': 1080px,
 );
 
 $width: (
     'wide': 100px,
-    'wide-ish': 200px,
-    'wider': 300px,
 );
 
-$base-url: 'assets/images/83bdc8cd2cfd042cf515398935c12306.jpeg';
-
 body {
-    background-color: $third-base;
+    display:grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "header header header header"
+    "week random random pages"
+    "week random random pages"
+    "week goals goals pages"
+    "week goals goals pages";
     font-size: map-get($font-size, small);
     line-height: map-get($line-height, low);
     height: map-get($height, teen);
-    color: $base;
-};
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 1fr 8fr 1fr;
-    grid-template-areas: 
-    "header header header header"
-    "left content content right"
-    "left content content right"
-    "left content content right"
-    "left content content right";
-    gap: 20px;
 };
 
 .grid-header {
@@ -106,214 +56,67 @@ body {
     align-items: center;
     justify-content: center;
     grid-area: header;
+    background: $light;
     color: $base;
-    font-family: map-get($font-family,regular)
 };
-
-li {
-    display: inline-block;
-    font-size: map-get($font-size, tiny);
-    padding: 0 1.3rem;
-    list-style: none;
-    transition: 300ms ease-in-out;
-};
-
-li:hover {
-    text-decoration: underline;
-}
-
-p {
-    width: 500px;
-    font-family: map-get($font-family,narrow);
-}
 
 h1 {
     font-size: map-get($font-size,medium);
     line-height: map-get($line-height,high);
-    font-family: map-get($font-family,regular);
 };
   
 h2 {
     font-size: map-get($font-size,regular);
     line-height: map-get($line-height,medium);
-    font-family: map-get($font-family,regular);
 };
   
 h3 {
     font-size: map-get($font-size,small);
     line-height: map-get($line-height,regular);
-    font-family: map-get($font-family,regular);
 };
-
-h4 {
-    font-size: map-get($font-size,tiny);
-    font-weight: lighter;
-    font-family: map-get($font-family,regular);
-};
-
-a {
-    color: $base;
-    text-decoration: none;
-};
-
-nav {
-    width: 100%;
-    height: 104px;
-}
-
-//. CONTENT
-
-.logo {
-    margin-right: 0px;
-    background-position: center;
-    background-size: cover;
-    height: map-get($height, teen);
-    width: map-get($width, wide-ish);
-    display: flex;
-}
-.navbar {
-    display: flex;
-    border-bottom: 2px solid $base;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 20px;
-}
   
-.grid-left-side {
+.grid-side {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    grid-area: left;
+    grid-area: week;
+    background: $dark;
+    color: $base;
 };
 
-.grid-right-side {
+.grid-random-facts {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     justify-content: center;
-    grid-area: right;
-    flex-direction: column;
-    width: map-get($width, wider)
+    grid-area: random;
+    background: $second-base;
+    color: $base;
 };
   
-.grid-content {
+.grid-main {
     display: flex;
+    align-items: center;
     justify-content: center;
-    grid-area: content;
-    flex-direction: column;
-    background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565)), url(../assets/images/83bdc8cd2cfd042cf515398935c12306.jpeg) no-repeat center / cover;
-    margin-top: 10px;
-    padding-left: 240px;
-    margin-bottom: 10px;
-    border: 2px solid $base;
-    gap: 5px;
-    overflow: hidden;
-
-    img {
-        width: 100%;
-        height:auto;
-        display: block;
-    }
+    grid-area: goals;
+    background: $third-base;
+    color: $base;
 };
 
-.journal-header {
-    grid-area: jheader;
-    border: 0.5px solid $base;
-    text-align: center;
-};
-
-.journal-container {
-    display: grid;
-    grid-template-columns: 100px 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "jheader jheader jheader jheader"
-      "jleft jmeal jmood jmood"
-      "jleft jmeal jmood jmood"
-      "jleft jmeal jmood jmood"
-      "jleft jmeal jmood jmood ";
-    gap: 10px;
-    margin: 0 1.5rem;
-};
-
-.journal-time {
-    @include solid-border();
-}
-.journal-meal {
-    @include solid-border();
-}
-.journal-mood {
-    @include solid-border();
-};
-
-.journal-time {
-    grid-area: jleft;
-};
-
-.journal-meal{
-    grid-area: jmeal;
-};
-
-.journal-mood{
-    grid-area: jmood;
-};
-
-.slide-in {
-    animation-name: slideIn;
-};
-  
-.slide-out {
-    animation-name: slideOut;
-};
-
-
-
-
-.button {
-    &:focus { display: inline-block;
-        padding: 4px 4px;
-        background-color: $third-base;
-        color: $base;
-        border: none;
-        font-size: 16px;
-        transition: background-color 0.3s ease;}
-
-    &:hover { background-color: $second-base;}    
-}
-
-.footer {
-    text-align: center;
-}
-
-// # CONTENT
-#modal {
-    margin-top: 30px;
-    width: 200px;
-    border-radius: 0.5px;
+.round-button {
+    display: inline-block;
+    padding: 30px 40px;
+    background-color: $light;
+    color: $dark;
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+};
+  
+.round-button:hover {
+    background-color: $bright;
 };
 
-#food-fact-content {
-    position: relative;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    font-size: 1.3rem;
-    width: 210px;
-    justify-self: center;
-    align-self: center;
-};
-
-#food-fact-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-    margin-top: 30px;
-    padding: 1.5rem;
-    height: 230px;
-    background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
-    overflow-x: hidden;
-    border: 0.5px solid $base;
-}
+  
