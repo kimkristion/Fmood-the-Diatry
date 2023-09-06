@@ -100,45 +100,41 @@ const timeNow = dayjs();
 const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
-var modalsubmit = document.getElementById('modalSubmit')
+var modalsubmit = document.getElementById('modalSubmit');
 
-
-modalsubmit.addEventListener('click', form)
+modalsubmit.addEventListener('click', form);
 function form(event) {
-    event.preventDefault();
+	event.preventDefault();
 	var mealLog;
 	var feelLog;
-    closeModal();
+	closeModal();
 }
 
 // add <span id="hour"></span> to include the time of day
-var timeLog = document.getElementById("hour");
-timeLog.innerHTML = timeHour + ":" + timeMinutes;
+var timeLog = document.getElementById('hour');
+timeLog.innerHTML = timeHour + ':' + timeMinutes;
 
-var daybyname = document.getElementById("day")
+var daybyname = document.getElementById('day');
 daybyname.innerHTML = day;
 
-
 function openModal() {
-    document.getElementById("themodal").style.display="block";
+	document.getElementById('themodal').style.display = 'block';
 }
-
 
 function closeModal() {
-    document.getElementById("themodal").style.display="none";
+	document.getElementById('themodal').style.display = 'none';
 }
 
-
-
 function nutritionData(food) {
-
 	var nutritionUrl = `https://api.edamam.com/api/nutrition-data?app_id=${nutritionId}&app_key=${nutritionKey}&nutrition-type=logging&ingr=${food}`;
 
 	// Edamam's API for nutrition information
 	fetch(nutritionUrl)
 		.then((response) => {
 			if (!response.ok) {
-				throw new Error(`Network response was not ok. Status: ${response.status}`);
+				throw new Error(
+					`Network response was not ok. Status: ${response.status}`
+				);
 			}
 			return response.json();
 		})
@@ -158,7 +154,7 @@ function nutritionButtonClick(event) {
 	event.preventDefault();
 	const userFoodInput = foodInput.value.trim();
 
-	if(userFoodInput) {
+	if (userFoodInput) {
 		let foodContainer = document.getElementById('foodInfoContainer');
 		foodContainer.innerHTML = '';
 		nutritionData(userFoodInput);
@@ -202,8 +198,6 @@ function foodInfoContainer(data) {
 	foodContainer.appendChild(foodContainerDiv);
 }
 
-
-
 // Function randomly generates fact from foodFacts object
 function coolFoodInfo() {
 	let foodFactContent = document.getElementById('food-fact-content');
@@ -231,31 +225,15 @@ function coolFoodInfo() {
 	setTimeout(coolFoodInfo, 6000);
 }
 
-
-function submitEntry(event) {
-	event.preventDefault();
-	console.log('is this working?');
-	
-
-	const food = foodInput.value;
-	const feelings = feelingsInput.value;
-
-	closeModal();
-};
-
 window.addEventListener('load', function (event) {
 	event.preventDefault();
 	coolFoodInfo();
 
-	document.addEventListener('click', function(event) {
+	document.addEventListener('click', function (event) {
 		let modalContainer = document.getElementById('modalContainer');
-	
+
 		// if (!modalContainer.contains(event.target)) {
 		// 	closeModal();
 		// }
 	});
 });
-
-
-
-
