@@ -12,32 +12,20 @@
 
   <div class="grid">
     <header class="grid-header">
-
       <a href="#"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
       <!--Nav bar section-->
       <nav class="navbar">
         <ul>
           <li class="nav-item"><a href="#">Home</a></li>
           <li class="nav-item"><a href="#journal-section">Journal</a></li>
-
           <li class="nav-item"><a href="#">About</a></li>
           <li class="nav-item"><a href="./resources.html">Resources</a></li>
         </ul>
       </nav>
     </header>
 
-
-    <div class="grid-left-side">
-      <h2 class="log-header">Curious?</h2>
-      <p>Enter an meal or a single item and get some nutrition facts!</p>
-      <input type="text" id="foodInput">
-      <button type="submit" id="nutrition-button">Get Nutrition Info</button>
-      <div id="foodInfoContainer">
-        <div class="food-info"></div>
-      </div>
-    </div>
-
-
+    <div class="grid-left-side"></div>
+<!--main content-->
     <div class="grid-content">
       <h1>FMood, Food Journal</h1>
       <h3>Reflect on your eating habits</h3>
@@ -62,37 +50,12 @@
 <!--Jornal Table section-->
 <div id="journal-section"></div>
   <div class="journal-container">
-    <h2 class="journal-header">Eat Your Feelings</h2>
+    <h2 class="journal-header">Journal Section</h2>
 
-    <div class="journal-time">
-      <h4 class="time-header">Time</h4>
-      <p>Time you ate:</p>
-    </div>
-    <div class="journal-meal">
-    </div>
-    <div class="journal-mood">
-      <h4 class="mood-header">How You Felt?</h4>
-        <p>Use this portion of the journal to discuss how you felt before eating the meal and how you felt after.</p>
-    </div>
+    <div class="journal-time">Log Time</div>
+    <div class="journal-meal">Meal Entry</div>
+    <div class="journal-mood">Mood Entry</div>
   </div>
-
-
-  <div id="nutritionResult"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-  <script src="./assets/js/script.js"></script>
-
-  <div class="modal-container" id="modalContainer">
-    <div class="modal-content">
-      <h2 onclick="closeModal()" style="float: right; cursor: pointer;">&times;</h2>
-      <h3>Today's Feelings</h3>
-      <input type="text" id="modalInput" name="food" placeholder="Enter your meal...">
-      <h3>How did I feel after this: </h3>
-      <input type="text" id="feelingsInput" name="feelings" placeholder="Enter how you felt after you ate...">
-      <button type="submit" onclick="sumbitEntry()">Enter</button>
-  </div>
-
 
 <!--Modal window container-->
   <div id="themodal" class="modal" style="display: none;">
@@ -113,7 +76,6 @@
         <h3 onclick="closeModal()" class="closeBtn">&times</h3>
       </div>
     </div>
-
 
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
