@@ -1,11 +1,20 @@
 // Global variables
 const apiKey = 'AIzaSyDzb5CInF5N1TKf_LYcclk2PyZoknQ5EmA';
 const timeNow = dayjs();
-
 const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
+var modalsubmit = document.getElementById('modalSubmit')
 
+
+modalsubmit.addEventListener('click', form)
+function form(event) {
+    event.preventDefault();
+    var timeLog;
+	var mealLog;
+	var feelLog;
+    closeModal();
+}
 
 // add <span id="hour"></span> to include the time of day
 var timeLog = document.getElementById("hour");
@@ -17,13 +26,13 @@ daybyname.innerHTML = day;
 
 function openModal() {
     document.getElementById("themodal").style.display="block";
-    document.getElementById("modal").style.display="none";
+    // document.getElementById("modal").style.display="none";
 }
 
 
 function closeModal() {
     document.getElementById("themodal").style.display="none";
-    document.getElementById("modal").style.display="block";
+    // document.getElementById("modal").style.display="block";
    
 }
 
@@ -153,6 +162,8 @@ function coolFoodInfo() {
 
 function submitEntry(event) {
 	event.preventDefault();
+	console.log('is this working?');
+	
 
 	const food = foodInput.value;
 	const feelings = feelingsInput.value;
@@ -167,9 +178,9 @@ window.addEventListener('load', function (event) {
 	document.addEventListener('click', function(event) {
 		let modalContainer = document.getElementById('modalContainer');
 	
-		if (!modalContainer.contains(event.target)) {
-			closeModal();
-		}
+		// if (!modalContainer.contains(event.target)) {
+		// 	closeModal();
+		// }
 	});
 });
 
