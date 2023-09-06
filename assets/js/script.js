@@ -2,17 +2,27 @@
 const apiKey = 'AIzaSyDzb5CInF5N1TKf_LYcclk2PyZoknQ5EmA';
 const timeNow = dayjs();
 
+// dayjs() variables
 const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
-
+const AMPM = timeNow.format('a')
 
 // add <span id="hour"></span> to include the time of day
 var timeLog = document.getElementById("hour");
-timeLog.innerHTML = timeHour + ":" + timeMinutes;
-
+timeLog.innerHTML = timeHour + ":" + timeMinutes + AMPM;
 var daybyname = document.getElementById("day")
 daybyname.innerHTML = day;
+
+// modal input and journal fields 
+var modalsubmit = document.getElementById('modalSubmit')
+const foodinput = document.getElementById('foodinput')
+const journalmealentry = document.querySelector('.journal-meal');
+const thetime = document.getElementById('hour')
+const journaltime = document.querySelector('.journal-time')
+const moodinput = document.getElementById('feelWhile')
+const journalmoodentry = document.querySelector('.journal-mood')
+
 
 
 function openModal() {
@@ -20,12 +30,24 @@ function openModal() {
     document.getElementById("modal").style.display="none";
 }
 
-
 function closeModal() {
     document.getElementById("themodal").style.display="none";
     document.getElementById("modal").style.display="block";
    
 }
+
+function form(event) {
+	event.preventDefault();
+	closeModal();
+}
+
+modalsubmit.addEventListener('click', form)
+
+
+
+
+
+
 
 
 
@@ -151,27 +173,6 @@ function coolFoodInfo() {
 }
 
 
-function submitEntry(event) {
-	event.preventDefault();
-
-	const food = foodInput.value;
-	const feelings = feelingsInput.value;
-
-	closeModal();
-};
-
-window.addEventListener('load', function (event) {
-	event.preventDefault();
-	coolFoodInfo();
-
-	document.addEventListener('click', function(event) {
-		let modalContainer = document.getElementById('modalContainer');
-	
-		if (!modalContainer.contains(event.target)) {
-			closeModal();
-		}
-	});
-});
 
 
 
