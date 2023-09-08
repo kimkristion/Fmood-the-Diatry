@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo+Black&family=Comfortaa:wght@300;400;500;600;700&family=Italianno&
+   family=Parisienne&family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./dist/css/main.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
   <title>FMood</title>
 </head>
@@ -40,10 +45,8 @@
     <div class="grid-content">
       <h1>FMood, Food Journal</h1>
       <h3>Fall in love with how you feel after a meal.</h3>
-      <p><strong>Food</strong> isn't just <strong>Food</strong>. What you eat plays a role in how your mood will change
-        throughout the day.
-        Use this <strong>FMood</strong> journal to keep track of what you eat, how it makes you feel and also get some
-        <strong>Nutritional Info</strong> about what you ate
+      <p><strong>Food</strong> isn't just <strong>Food</strong>. What you eat plays a role in how your mood will change throughout the day.
+        Use this <strong>FMood</strong> journal to keep track of what you eat, how it makes you feel and also get some <strong>Nutritional Info</strong> about what you ate
         and what you plan to eat next.
       </p>
 
@@ -67,23 +70,22 @@
     <h2 class="journal-header">Journal Section</h2>
 
     <div class="journal-time">
-      <h3>Log Time</h3>
+      <h4>Log Time</h4>
       <ul id="dynamic-time">
       </ul>
     </div>
 
     <div class="journal-meal">
-      <h3>Meal Entry</h3>
+      <h4>Meal Entry</h4>
       <ul id="dynamic-meal">
       </ul>
     </div>
 
     <div class="journal-mood">
-      <h3>Mood Entry</h3>
+      <h4>Mood Entry</h4>
       <ul id="dynamic-mood">
       </ul>
     </div>
-
   </div>
 
   <!--Modal window container-->
@@ -95,9 +97,9 @@
       </div>
       <div class="right-side">
         <form id="foodForm">
-          <input type="text" placeholder="what did you eat...?" id="food-input">
-          <input type="text" placeholder="how did you feel while eating...?" id="feel-input">
-          <!-- <input type="text" placeholder="how did you feel after eating..." id="feel-after">
+          <input type="text" placeholder="what did you eat..." id="foodinput">
+          <input type="text" placeholder="how did you feel while eating..." id="feelWhile">
+          <!--input type="text" placeholder="how did you feel after eating..." id="feelAfter">
           <input type="text" placeholder="would you eat that food again..." id="conclusion">-->
           <button id="modalSubmit">Submit</button>
         </form>
