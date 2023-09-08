@@ -105,30 +105,43 @@ const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
 const AMPM = timeNow.format('a')
 var modalsubmit = document.getElementById('modalSubmit');
+let inputsformodal = document.querySelectorAll('inputs');
 
 //This function captures the time, meal and mood, and sets them to varibles. 
 function captureInputs() {
 	const currentTime = dayjs();
 	const formattedTime = currentTime.format('MMM:D');
+	const foodInput = document.getElementById('food-input');
+	const feelInput = document.getElementById('feel-input');
 	const foodInputValue = document.getElementById('food-input').value;
 	const feelInputValue = document.getElementById('feel-input').value;
 
-	console.log('Current Time:', formattedTime);
-	console.log('Food Input:', foodInputValue);
-	console.log('Feeling:', feelInputValue);
+	if (foodInputValue === "" || feelInputValue === "") {
+		foodInput.placeholder = "please input value";
+		feelInput.placeholder = "please input value";
+	}
+	else {
+		closeModal();
+		console.log('Current Time:', formattedTime);
+		console.log('Food Input:', foodInputValue);
+		console.log('Feeling:', feelInputValue);
+	}
+	
+}
+
+function resetModal() {
+	inputsformodal.forEach(input => input.value = "");
+
 }
 
 function falseRefresh(event) {
 	event.preventDefualt();
 }
 
-modalsubmit.addEventListener('click', () =>  {
-	falseRefresh();
+modalsubmit.addEventListener('click', function (event) {
+	event.preventDefault();
 	captureInputs();
-	console.log("hello")
 
-
-	closeModal();
 });
 
 // add <span id="hour"></span> to include the time of day
@@ -144,6 +157,10 @@ function openModal() {
 
 function closeModal() {
 	document.getElementById('themodal').style.display = 'none';
+	let inputs = document.querySelectorAll('input');
+	document.getElementById('food-input').placeholder = "what did you eat...?";
+	document.getElementById('feel-input').placeholder = "how did you feel while eating...?";
+	inputs.forEach(input => input.value = "");
 }
 
 function nutritionData(food) {
