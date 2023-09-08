@@ -103,14 +103,21 @@ const timeNow = dayjs();
 const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
-const AMPM = timeNow.format('a')
+const AMPM = timeNow.format('a');
+const month = timeNow.format('MMM');
+const date = timeNow.format('D');
+
 var modalsubmit = document.getElementById('modalSubmit');
+var dynamictime = document.getElementById('dynamic-time');
+var dynamicfood = document.getElementById('dynamic-meal');
+var dynamicmood = document.getElementById('dynamic-mood');
+
 let inputsformodal = document.querySelectorAll('inputs');
 
 //This function captures the time, meal and mood, and sets them to varibles. 
 function captureInputs() {
-	const currentTime = dayjs();
-	const formattedTime = currentTime.format('MMM:D');
+	//const currentTime = new Date();
+	//const formattedTime = currentTime.format('MMM:D');
 	const foodInput = document.getElementById('food-input');
 	const feelInput = document.getElementById('feel-input');
 	const foodInputValue = document.getElementById('food-input').value;
@@ -121,10 +128,16 @@ function captureInputs() {
 		feelInput.placeholder = "please input value";
 	}
 	else {
+		var newlisttime = document.createElement('li');
+		var newlistfood = document.createElement('li');
+		var newlistmood = document.createElement('li');
+		newlisttime.innerHTML = month + " " + date;
+		newlistfood.innerHTML = foodInputValue;
+		newlistmood.innerHTML = feelInputValue;
+		dynamictime.append(newlisttime);
+		dynamicfood.append(newlistfood);
+		dynamicmood.append(newlistmood);
 		closeModal();
-		console.log('Current Time:', formattedTime);
-		console.log('Food Input:', foodInputValue);
-		console.log('Feeling:', feelInputValue);
 	}
 	
 }
