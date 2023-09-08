@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>FMood</title>
 </head>
 
@@ -37,18 +38,23 @@
     </div>
 
 
-    <div class="grid-content">
+    <div class="grid-content" id="landingPageContainer">
+      <div class="hero-content">
       <h1>FMood, Food Journal</h1>
       <h3>Fall in love with how you feel after a meal.</h3>
       <p><strong>Food</strong> isn't just <strong>Food</strong>. What you eat plays a role in how your mood will change throughout the day.
         Use this <strong>FMood</strong> journal to keep track of what you eat, how it makes you feel and also get some <strong>Nutritional Info</strong> about what you ate
         and what you plan to eat next.
       </p>
+   
+   
+   
 
       <!--modal button-->
       <button id="openModal" onclick="openModal()">
         Log Your Meal
       </button>
+    </div>
     </div>
     <!--food fact container-->
 
@@ -95,6 +101,7 @@
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/hero.js"></script>
 
 </body>
 

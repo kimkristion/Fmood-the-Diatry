@@ -155,7 +155,7 @@ p, #food-fact-content, span {
 }
 
 .grid-left-side p {
-  margin-bottom: 20px;
+  line-height: 24px;
   text-align: center;
   width: 200px;
 }
@@ -193,11 +193,33 @@ p, #food-fact-content, span {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   grid-area: content;
-  padding-left: 240px;
-  background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565)), url(../images/bg.jpeg) no-repeat center / cover;
+  background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.726), rgba(0, 0, 0, 0.714));
   border: 2px solid var(--bright);
   border-radius: 0.5rem;
+}
+
+.hero-content {
+  width: 50%;
+  padding: 1rem 1.3rem;
+  border-radius: 5px;
+  transform: translateX(-180px) translateY(30px);
+  background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
+}
+
+.hero-content h3 {
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  margin-bottom: 22px;
+}
+
+#landingPageContainer {
+  background-image: url('placeholder.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .modal-container {
