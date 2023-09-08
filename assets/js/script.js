@@ -11,11 +11,12 @@ var modalsubmit = document.getElementById('modalSubmit')
 modalsubmit.addEventListener('click', form)
 function form(event) {
     event.preventDefault();
-    var timeLog;
+	var timeoflog;
 	var mealLog;
 	var feelLog;
     closeModal();
 }
+
 
 // add <span id="hour"></span> to include the time of day
 var timeLog = document.getElementById("hour");
