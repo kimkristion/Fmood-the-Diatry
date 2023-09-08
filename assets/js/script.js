@@ -1,3 +1,6 @@
+
+
+
 // Global variables
 var foodFacts = [
 	{
@@ -100,9 +103,10 @@ const timeNow = dayjs();
 const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
+const AMPM = timeNow.format('a')
 var modalsubmit = document.getElementById('modalSubmit');
 
-//This function captures the time, meal and mood, and sets them to varibles.
+//This function captures the time, meal and mood, and sets them to varibles. 
 function captureInputs() {
 	const currentTime = dayjs();
 	const formattedTime = currentTime.format('MMM:D');
@@ -114,9 +118,15 @@ function captureInputs() {
 	console.log('Feeling:', feelInputValue);
 }
 
-document.getElementById('modalSubmit').addEventListener('click', function (event) {
-	event.preventDefault();
+function falseRefresh(event) {
+	event.preventDefualt();
+}
+
+modalsubmit.addEventListener('click', () =>  {
+	falseRefresh();
 	captureInputs();
+	console.log("hello")
+
 
 	closeModal();
 });
