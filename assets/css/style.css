@@ -438,6 +438,11 @@ button:hover {
 
 }
 
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
 footer {
   text-align: center;
   font-weight: lighter;
