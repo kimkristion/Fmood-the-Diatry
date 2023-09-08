@@ -1,54 +1,3 @@
-// Global variables
-const apiKey = 'AIzaSyDzb5CInF5N1TKf_LYcclk2PyZoknQ5EmA';
-const timeNow = dayjs();
-const day = timeNow.format('dddd');
-const timeHour = timeNow.format('h');
-const timeMinutes = timeNow.format('mm');
-const AMPM = timeNow.format('a')
-var modalsubmit = document.getElementById('modalSubmit')
-
-
-modalsubmit.addEventListener('click', form)
-function form(event) {
-    event.preventDefault();
-	var timeoflog;
-	var mealLog;
-	var feelLog;
-    closeModal();
-}
-
-
-// add <span id="hour"></span> to include the time of day
-var timeLog = document.getElementById("hour");
-timeLog.innerHTML = timeHour + ":" + timeMinutes + AMPM;
-var daybyname = document.getElementById("day")
-daybyname.innerHTML = day;
-
-
-
-function openModal() {
-    document.getElementById("themodal").style.display="block";
-    // document.getElementById("modal").style.display="none";
-}
-
-function closeModal() {
-    document.getElementById("themodal").style.display="none";
-    // document.getElementById("modal").style.display="block";
-   
-}
-
-function form(event) {
-	event.preventDefault();
-	closeModal();
-}
-
-modalsubmit.addEventListener('click', form)
-
-
-
-
-
-
 
 
 
@@ -154,7 +103,9 @@ const timeNow = dayjs();
 const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
+const AMPM = timeNow.format('a')
 var modalsubmit = document.getElementById('modalSubmit');
+
 
 function captureInputs() {
 	const currentTime = dayjs();
@@ -167,9 +118,15 @@ function captureInputs() {
 	console.log('Food Input:', foodInputValue);
 }
 
-document.getElementById('modalSubmit').addEventListener('click', function (event) {
-	event.preventDefault();
+function falseRefresh(event) {
+	event.preventDefualt();
+}
+
+modalsubmit.addEventListener('click', () =>  {
+	falseRefresh();
 	captureInputs();
+	console.log("hello")
+
 
 	closeModal();
 });
