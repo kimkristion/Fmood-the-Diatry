@@ -13,6 +13,7 @@
   <div class="grid">
     <header class="grid-header">
       <a href="#"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
+
       <!--Nav bar section-->
       <nav class="navbar">
         <ul>
@@ -24,21 +25,32 @@
       </nav>
     </header>
 
-    <div class="grid-left-side"></div>
-<!--main content-->
+
+    <div class="grid-left-side">
+      <h2 class="log-header">Curious?</h2>
+      <p>Enter a meal or a single item and get some nutrition facts!</p>
+      <input type="text" id="foodInput">
+      <button type="button" id="nutrition-button">Get Nutrition Info</button>
+      <div id="foodInfoContainer">
+        <div class="food-info"></div>
+      </div>
+    </div>
+
+
     <div class="grid-content">
       <h1>FMood, Food Journal</h1>
-      <h3>Reflect on your eating habits</h3>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate laudantium sapiente odit sed laboriosam,
-        voluptatum corrupti magni obcaecati. Fugiat quas cumque laboriosam praesentium vel, voluptas eveniet recusandae
-        necessitatibus consequuntur sunt!
+      <h3>Fall in love with how you feel after a meal.</h3>
+      <p><strong>Food</strong> isn't just <strong>Food</strong>. What you eat plays a role in how your mood will change throughout the day.
+        Use this <strong>FMood</strong> journal to keep track of what you eat, how it makes you feel and also get some <strong>Nutritional Info</strong> about what you ate
+        and what you plan to eat next.
       </p>
+
       <!--modal button-->
       <button id="openModal" onclick="openModal()">
         Log Your Meal
       </button>
     </div>
-<!--food fact container-->
+    <!--food fact container-->
 
     <div class="grid-right-side">
       <h2>Did you know?</h2>
@@ -47,8 +59,8 @@
       </div>
     </div>
   </div>
-<!--Jornal Table section-->
-<div id="journal-section"></div>
+  <!--Jornal Table section-->
+  <div id="journal-section"></div>
   <div class="journal-container">
     <h2 class="journal-header">Journal Section</h2>
 
@@ -57,31 +69,33 @@
     <div class="journal-mood">Mood Entry</div>
   </div>
 
-<!--Modal window container-->
+  <!--Modal window container-->
   <div id="themodal" class="modal" style="display: none;">
     <div class="thecontent">
-        <div class="left-side">
-          <h2 id="day"></h2>
-          <span id="hour"></span>
-          </div>
-        <div class="right-side">
-          <form>
-            <input type="text" placeholder="what did you eat..." id="foodinput">
-            <input type="text" placeholder="how did you feel while eating..." id="feelWhile">
-            <input type="text" placeholder="how did you feel after eating..." id="feelAfter">
-            <!--<input type="text" placeholder="would you eat that food again..." id="conclusion">-->
-            <button id="modalSubmit">Submit</button>
-          </form>
-        </div>
-        <h3 onclick="closeModal()" class="closeBtn">&times</h3>
+      <div class="left-side">
+        <h2 id="day"></h2>
+        <span id="hour"></span>
       </div>
+      <div class="right-side">
+        <form id="foodForm">
+          <input type="text" placeholder="what did you eat..." id="foodinput">
+          <input type="text" placeholder="how did you feel while eating..." id="feelWhile">
+          <input type="text" placeholder="how did you feel after eating..." id="feelAfter">
+          <!--<input type="text" placeholder="would you eat that food again..." id="conclusion">-->
+          <button id="modalSubmit">Submit</button>
+        </form>
+      </div>
+      <h3 onclick="closeModal()" class="closeBtn">&times</h3>
     </div>
+  </div>
+
+  <footer>What You Eat Says A Lot About How You Feel/ Want To Feel</footer>
 
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-  integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
   <script src="./assets/js/script.js"></script>
-  
+
 </body>
 
 </html>
