@@ -102,15 +102,16 @@ const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
 var modalsubmit = document.getElementById('modalSubmit');
 
+//This function captures the time, meal and mood, and sets them to varibles.
 function captureInputs() {
 	const currentTime = dayjs();
 	const formattedTime = currentTime.format('MMM:D');
-	const foodInputValue = document.getElementById('foodinput').value;
-	console.log(foodInputValue);
-
+	const foodInputValue = document.getElementById('food-input').value;
+	const feelInputValue = document.getElementById('feel-input').value;
 
 	console.log('Current Time:', formattedTime);
 	console.log('Food Input:', foodInputValue);
+	console.log('Feeling:', feelInputValue);
 }
 
 document.getElementById('modalSubmit').addEventListener('click', function (event) {
