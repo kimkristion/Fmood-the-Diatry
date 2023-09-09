@@ -102,39 +102,42 @@ const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
 var modalsubmit = document.getElementById('modalSubmit');
 
+// Day.js functionality and display
 function captureInputs() {
 	const currentTime = dayjs();
 	const formattedTime = currentTime.format('MMM:D');
 	const foodInputValue = document.getElementById('foodinput').value;
 	console.log(foodInputValue);
-
-
 	console.log('Current Time:', formattedTime);
 	console.log('Food Input:', foodInputValue);
 }
 
+// Event listener for modal submit
 document.getElementById('modalSubmit').addEventListener('click', function (event) {
 	event.preventDefault();
 	captureInputs();
-
 	closeModal();
 });
 
-// add <span id="hour"></span> to include the time of day
+// Adds time of day to page dynamically
 var timeLog = document.getElementById('hour');
 timeLog.innerHTML = timeHour + ':' + timeMinutes;
 
+// Adds name of day to page dynamically
 var daybyname = document.getElementById('day');
 daybyname.innerHTML = day;
 
+// Opens modal
 function openModal() {
 	document.getElementById('themodal').style.display = 'block';
 }
 
+// Closes modal
 function closeModal() {
 	document.getElementById('themodal').style.display = 'none';
 }
 
+// Function that calls for information from 'food' through the API
 function nutritionData(food) {
 	var nutritionUrl = `https://api.edamam.com/api/nutrition-data?app_id=${nutritionId}&app_key=${nutritionKey}&nutrition-type=logging&ingr=${food}`;
 
@@ -160,6 +163,7 @@ function nutritionData(food) {
 		});
 }
 
+// Displays food information of food user entered to viewport
 function nutritionButtonClick(event) {
 	event.preventDefault();
 	const userFoodInput = foodInput.value.trim();
@@ -173,9 +177,11 @@ function nutritionButtonClick(event) {
 	}
 }
 
+// Event listener targeting the click of the nutrition facts section
 const nutritionButton = document.getElementById('nutrition-button');
 nutritionButton.addEventListener('click', nutritionButtonClick);
 
+// Draws relevant information from API and dynamically appends to viewport
 function foodInfoContainer(data) {
 	const foodContainer = document.getElementById('foodInfoContainer');
 
@@ -188,16 +194,16 @@ function foodInfoContainer(data) {
 	const foodContainerDiv = document.createElement('div');
 	foodContainerDiv.classList.add('food-info');
 
-	const foodLabelEl = document.createElement('p');
-	foodLabelEl.textContent = `Food: ${foodLabel}`;
-	const caloriesEl = document.createElement('p');
-	caloriesEl.textContent = `Calories: ${calories}`;
-	const proteinEl = document.createElement('p');
-	proteinEl.textContent = `Protein: ${protein}`;
-	const carbsEl = document.createElement('p');
-	carbsEl.textContent = `Carbs: ${carbs}`;
-	const fatEl = document.createElement('p');
-	fatEl.textContent = `Fat: ${fat}`;
+	const foodLabelEl = document.createElement('p'); // 
+	foodLabelEl.textContent = `Food: ${foodLabel}`; // Creates
+	const caloriesEl = document.createElement('p'); // Elements
+	caloriesEl.textContent = `Calories: ${calories}`; // Dynamically to
+	const proteinEl = document.createElement('p'); // Contain 
+	proteinEl.textContent = `Protein: ${protein}`; // Relevant
+	const carbsEl = document.createElement('p'); // Food
+	carbsEl.textContent = `Carbs: ${carbs}`; // Information
+	const fatEl = document.createElement('p'); // To viewport
+	fatEl.textContent = `Fat: ${fat}`; //
 
 	foodContainerDiv.appendChild(foodLabelEl);
 	foodContainerDiv.appendChild(caloriesEl);
@@ -223,11 +229,11 @@ function coolFoodInfo() {
 
 		// Applies fact content to screen
 		foodFactContent.textContent = randomFact.fact;
-
 		foodFactContent.classList.remove('slide-out');
 		foodFactContent.classList.add('slide-in');
 	}, 1000);
 
+	// Sets timeout function to set how long per each fact stays on screen
 	setTimeout(() => {
 		foodFactContent.classList.remove('slide-in', 'slide-out');
 	}, 2000);
@@ -235,15 +241,8 @@ function coolFoodInfo() {
 	setTimeout(coolFoodInfo, 6000);
 }
 
+// Event listener for initial page load and runs coolFoodInfo function after load
 window.addEventListener('load', function (event) {
 	event.preventDefault();
 	coolFoodInfo();
-
-	document.addEventListener('click', function (event) {
-		let modalContainer = document.getElementById('modalContainer');
-
-		// if (!modalContainer.contains(event.target)) {
-		// 	closeModal();
-		// }
-	});
 });
