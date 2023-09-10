@@ -1,3 +1,6 @@
+
+
+
 // Global variables
 var foodFacts = [
 	{
@@ -100,20 +103,55 @@ const timeNow = dayjs();
 const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
 const timeMinutes = timeNow.format('mm');
-var modalsubmit = document.getElementById('modalSubmit');
+const AMPM = timeNow.format('a');
+const month = timeNow.format('MMM');
+const date = timeNow.format('D');
 
-// Day.js functionality and display
+var modalsubmit = document.getElementById('modalSubmit');
+var dynamictime = document.getElementById('dynamic-time');
+var dynamicfood = document.getElementById('dynamic-meal');
+var dynamicmood = document.getElementById('dynamic-mood');
+
+let inputsformodal = document.querySelectorAll('inputs');
+
+//This function captures the time, meal and mood, and sets them to varibles. 
 function captureInputs() {
-	const currentTime = dayjs();
-	const formattedTime = currentTime.format('MMM:D');
-	const foodInputValue = document.getElementById('foodinput').value;
-	console.log(foodInputValue);
-	console.log('Current Time:', formattedTime);
-	console.log('Food Input:', foodInputValue);
+	//const currentTime = new Date();
+	//const formattedTime = currentTime.format('MMM:D');
+	const foodInput = document.getElementById('food-input');
+	const feelInput = document.getElementById('feel-input');
+	const foodInputValue = document.getElementById('food-input').value;
+	const feelInputValue = document.getElementById('feel-input').value;
+
+	if (foodInputValue === "" || feelInputValue === "") {
+		foodInput.placeholder = "please input value";
+		feelInput.placeholder = "please input value";
+	}
+	else {
+		var newlisttime = document.createElement('li');
+		var newlistfood = document.createElement('li');
+		var newlistmood = document.createElement('li');
+		newlisttime.innerHTML = month + " " + date;
+		newlistfood.innerHTML = foodInputValue;
+		newlistmood.innerHTML = feelInputValue;
+		dynamictime.append(newlisttime);
+		dynamicfood.append(newlistfood);
+		dynamicmood.append(newlistmood);
+		closeModal();
+	}
+	
 }
 
-// Event listener for modal submit
-document.getElementById('modalSubmit').addEventListener('click', function (event) {
+function resetModal() {
+	inputsformodal.forEach(input => input.value = "");
+
+}
+
+function falseRefresh(event) {
+	event.preventDefualt();
+}
+
+modalsubmit.addEventListener('click', function (event) {
 	event.preventDefault();
 	captureInputs();
 	closeModal();
@@ -135,6 +173,10 @@ function openModal() {
 // Closes modal
 function closeModal() {
 	document.getElementById('themodal').style.display = 'none';
+	let inputs = document.querySelectorAll('input');
+	document.getElementById('food-input').placeholder = "what did you eat...?";
+	document.getElementById('feel-input').placeholder = "how did you feel while eating...?";
+	inputs.forEach(input => input.value = "");
 }
 
 // Function that calls for information from 'food' through the API

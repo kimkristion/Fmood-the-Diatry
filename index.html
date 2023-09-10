@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo+Black&family=Comfortaa:wght@300;400;500;600;700&family=Italianno&
+   family=Parisienne&family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./dist/css/main.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>FMood</title>
@@ -19,9 +24,9 @@
       <!-- Page Navigation -->
       <nav class="navbar">
         <ul>
-          <li class="nav-item"><a href="#">Home</a></li>
+          <li class="nav-item"><a href="./index.html">Home</a></li>
           <li class="nav-item"><a href="#journal-section">Journal</a></li>
-          <li class="nav-item"><a href="#">About</a></li>
+          <li class="nav-item"><a href="./about.html">About</a></li>
           <li class="nav-item"><a href="./resources.html">Resources</a></li>
         </ul>
       </nav>
@@ -68,9 +73,23 @@
   <div class="journal-container">
     <h2 class="journal-header">Journal Section</h2>
 
-    <div class="journal-time">Log Time</div>
-    <div class="journal-meal">Meal Entry</div>
-    <div class="journal-mood">Mood Entry</div>
+    <div class="journal-time">
+      <h4>Log Time</h4>
+      <ul id="dynamic-time">
+      </ul>
+    </div>
+
+    <div class="journal-meal">
+      <h4>Meal Entry</h4>
+      <ul id="dynamic-meal">
+      </ul>
+    </div>
+
+    <div class="journal-mood">
+      <h4>Mood Entry</h4>
+      <ul id="dynamic-mood">
+      </ul>
+    </div>
   </div>
 
   <!--Modal Container -->
@@ -84,7 +103,8 @@
         <form id="foodForm">
           <input type="text" placeholder="what did you eat..." id="foodinput">
           <input type="text" placeholder="how did you feel while eating..." id="feelWhile">
-          <input type="text" placeholder="how did you feel after eating..." id="feelAfter">
+          <!--input type="text" placeholder="how did you feel after eating..." id="feelAfter">
+          <input type="text" placeholder="would you eat that food again..." id="conclusion">-->
           <button id="modalSubmit">Submit</button>
         </form>
       </div>

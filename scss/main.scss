@@ -6,13 +6,22 @@
   box-sizing: border-box;
 };
 
-$light : powderblue;
-$dark : navy;
-$base : ghostwhite;
-$second-base: grey;
-$third-base: black;
-$bright: red;
+$base: ghostwhite;
+$light: #106E71;
+$bright: #F7E7CE;
+$dark: #0B0B45;
+$second-base: #ff5349;
+$third-base: #d1edf2;
+$shaddy: #434b56;
+
+$font-family: (
+    'heading': 'Segoe UI',
+    'navigation': 'Snell Roundhand',
+    'other-text': 'Franklin Gothic Medium',
+);
+
 $font-size: (
+    'smallest': 1.3rem,
     'small': 1.7rem,
     'regular' : 2.5rem,
     'medium' : 3rem,
@@ -28,95 +37,449 @@ $line-height: (
 
 $height: (
     'toddler': 80px,
+    'tween': 104px,
     'teen': 120px,
     'adult': 1080px,
 );
 
 $width: (
     'wide': 100px,
+    'wide-ish': 200px,
+    'wider': 500px,
 );
 
 body {
-    display:grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: 
-    "header header header header"
-    "week random random pages"
-    "week random random pages"
-    "week goals goals pages"
-    "week goals goals pages";
-    font-size: map-get($font-size, small);
-    line-height: map-get($line-height, low);
-    height: map-get($height, teen);
-};
+    background-color: $light;
+    color: $bright;
+    font-size: map-get($font-size, smallest);
+    line-height: map-get($line-height,low);
+    height: map-get($height,adult);
+}
+
+nav {
+    width: 100%;
+    height: map-get($height,tween);
+}
+  
+.navbar,
+.resources-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+    border-bottom: 0.4px solid $bright;
+}
+
+.logo {
+    height: 150px;
+    width: 200px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+  
+a {
+    color: $bright;
+    text-decoration: none;
+}
+
+li {
+    display: inline-block;
+    font-size: map-get($font-size,smallest);
+    padding: 0 1.3rem;
+    list-style: none;
+}
+  
+  li:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: map-get($font-size,medium);
+    line-height: map-get($line-height,high);
+}
+  
+h2 {
+    font-size: map-get($font-size,regular);
+    line-height: map-get($line-height,medium);
+}
+  
+h3 {
+    font-size:map-get($font-size,small);
+    line-height: map-get($line-height,regular);
+}
+  
+footer {
+    font-size: map-get($font-size,smallest);
+    line-height: map-get($line-height,regular);
+    font-weight: lighter;
+}
+  
+p {
+    width: map-get($width,wider);
+    font-size: map-get($font-size,smallest);
+}
+
+.navbar {
+    font-family: map-get($font-family,navigation);
+  }
+  
+  h1, h2, h3, footer {
+   font-family: map-get($font-family,heading);
+  }
+  
+  .journal-time, .journal-meal, .journal-mood {
+    font-family:map-get($font-family,other-text);
+    font-weight: lighter;
+  }
+  
+  p, #food-fact-content, span {
+    font-family:map-get($font-family,other-text);
+  }
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-areas:
+      "header header header header"
+      "left content content right"
+      "left content content right"
+      "left content content right"
+      "left content content right";
+    gap: 20px;
+    height: map-get($height,adult);
+    padding-bottom: 30px;
+}
 
 .grid-header {
     display: flex;
     align-items: center;
     justify-content: center;
     grid-area: header;
-    background: $light;
-    color: $base;
-};
-
-h1 {
-    font-size: map-get($font-size,medium);
-    line-height: map-get($line-height,high);
-};
+}
   
-h2 {
-    font-size: map-get($font-size,regular);
-    line-height: map-get($line-height,medium);
-};
-  
-h3 {
-    font-size: map-get($font-size,small);
-    line-height: map-get($line-height,regular);
-};
-  
-.grid-side {
+.grid-left-side {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    grid-area: week;
-    background: $dark;
-    color: $base;
-};
-
-.grid-random-facts {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    grid-area: random;
-    background: $second-base;
-    color: $base;
-};
+    grid-area: left;
+}
   
-.grid-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-area: goals;
-    background: $third-base;
-    color: $base;
-};
+.grid-left-side p {
+    margin-bottom: 20px;
+    text-align: center;
+    width: map-get($width,wide-ish);
+}
 
-.round-button {
-    display: inline-block;
-    padding: 30px 40px;
-    background-color: $light;
-    color: $dark;
-    border: none;
-    border-radius: 50%;
+#foodInput {
+    padding: 0.5rem 2rem;
+    width: 80%;
+    margin-bottom: 20px;
+    border-radius: 0.2rem;
+}
+  
+#nutrition-button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.2rem;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-};
+    border: 0.5px solid $bright;
+}
+
+.food-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: map-get($font-size,smallest);
+    line-height: 0.8rem;
+    height: 230px;
+    width: 210px;
+    margin-top: 40px;
+    background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
+    border: 2px solid $bright;
+    border-radius: 0.5rem;
+}
+
+.grid-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: content;
+    padding-left: 240px;
+    background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
+    background-image: url(../images/bg.jpeg) no-repeat center / cover;
+    border: 2px solid $bright;
+    border-radius: 0.5rem;
+}
+
+.modal-container {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $dark;
+}
+
+.modal-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $dark;
+    padding: 20px;
+    width: 500px;
+    height: auto;
+    box-shadow: 0 4px 8px $shaddy;
+    border-radius: 5px;
+}
+
+#openModal {
+    width: 250px;
+    padding: 0.8rem 1.4rem;
+}
+
+.grid-right-side {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-area: right;
+    width: 300px;
+}
+
+#food-fact-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    margin-top: 35px;
+    padding: 1.5rem;
+    height: 300px;
+    background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
+    overflow-x: hidden;
+    border: 2px solid $bright;
+    border-radius: 0.5rem;
+}
+
+#food-fact-content {
+    position: relative;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    font-size: 1.3rem;
+    width: 210px;
+    justify-self: center;
+    align-self: center;
+}
+
+#themodal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    max-width: 760px;
+    height: 100%;
+    max-height: 760px;
+    border: 2px solid $bright;
+    transform: translate(-50%, -50%);
+    background-color: $light;
+    border-radius: .5rem;
+    height: 640px;
+}
+
+.thecontent {
+    display: flex;
+}
   
-.round-button:hover {
-    background-color: $bright;
-};
+  
+.left-side {
+    flex: 1;
+    padding: 1rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
+    background-image: url(../images/modal.jpg);
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    height: 635px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: map-get($font-size,medium);
+}
+
+.right-side {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    padding: 1rem;
+}
+
+.right-side input {
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#foodinput {
+    background-position: 1%;
+    background-image: url(../images/food.jpg);
+    padding-left: 1rem;
+    background-repeat: no-repeat;
+    background-size: 2.2rem;
+    padding: 10px 22px 10px 44px;
+}
+
+#feelWhile {
+    background-position: 1%;
+    background-image: url(../images/thoughts.jpg);
+    padding-left: 1rem;
+    background-repeat: no-repeat;
+    background-size: 2.2rem;
+    padding: 10px 22px 10px 44px;
+}
+
+#feelAfter {
+    background-position: 1%;
+    background-image: url(../images/feeling.png);
+    padding-left: 1rem;
+    background-repeat: no-repeat;
+    background-size: 2.2rem;
+    padding: 10px 22px 10px 44px;
+}
+
+#conclusion {
+    background-position: 1%;
+    background-image: url(../images/foodforthought.png);
+    padding-left: 1rem;
+    background-repeat: no-repeat;
+    background-size: 2.2rem;
+    padding: 10px 22px 10px 44px;
+}
+
+#modalSubmit {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+    display: block;
+    justify-content: center;
+    margin-left: 25%;
+    padding: 1rem;
+    text-transform: lowercase;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+button {
+    display: inline-block;
+    background-color: $light;
+    color: $bright;
+    border: 0.5px solid $bright;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    box-shadow:  0 12px 20px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+button:hover {
+    background-color: $dark;
+}
+  
+.closeBtn {
+    padding-right: .5rem;
+    cursor: pointer;
+  
+}
+  
+.thecontent span {
+    padding: 1rem;
+}
+
+.journal-container {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "jheader jheader jheader jheader"
+      "jleft jmeal jmood jmood"
+      "jleft jmeal jmood jmood"
+      "jleft jmeal jmood jmood"
+      "jleft jmeal jmood jmood ";
+    gap: 5px;
+    margin: 0 1.5rem;
+}
+
+.journal-header {
+    grid-area: jheader;
+    border: 1px solid $bright;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.journal-time {
+    grid-area: jleft;
+    border: 1px solid $bright;
+    border-radius: 0.2rem 0rem 0rem 0.2rem;
+  
+}
+
+.journal-meal {
+    grid-area: jmeal;
+    border: 1px solid $bright;
+  
+}
+  
+.journal-mood {
+    grid-area: jmood;
+    border: 1px solid $bright;
+    border-radius: 0rem 0.2rem 0.2rem 0rem;
+  
+}
+
+footer {
+    text-align: center;
+    font-weight: lighter;
+}
+
+@keyframes slideIn {
+    0% {
+      transform: translateX(120%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+}
+  
+@keyframes slideOut {
+    0% {
+      transform: translateX(0);
+    }
+  
+    100% {
+      transform: translateX(-120%);
+    }
+}
+  
+.slide-in {
+    animation-name: slideIn;
+}
+  
+.slide-out {
+    animation-name: slideOut;
+}
+
 
   
