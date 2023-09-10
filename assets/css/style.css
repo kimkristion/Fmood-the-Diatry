@@ -166,8 +166,8 @@ p, #food-fact-content, span {
   justify-content: center;
   font-size: 1.3rem;
   line-height: 0.8rem;
-  height: 230px;
-  width: 210px;
+  height: 270px;
+  width: 220px;
   margin-top: 40px;
   background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
   border: 2px solid var(--bright);
@@ -186,10 +186,10 @@ p, #food-fact-content, span {
 }
 
 .hero-content {
-  width: 50%;
+  width: 70%;
   padding: 1rem 1.3rem;
   border-radius: 5px;
-  transform: translateX(-180px) translateY(30px);
+  transform: translateX(-30%) translateY(30px);
   background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
 }
 
