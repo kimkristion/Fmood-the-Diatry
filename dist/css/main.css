@@ -48,6 +48,10 @@ li {
   list-style: none;
 }
 
+li:hover {
+  text-decoration: underline;
+}
+
 h1 {
   font-size: 3rem;
   line-height: 3.5rem;
@@ -63,7 +67,7 @@ h3 {
   line-height: 2.5rem;
 }
 
-footer {
+h5 {
   font-size: 1.3rem;
   line-height: 2.5rem;
   font-weight: lighter;
@@ -75,20 +79,20 @@ p {
 }
 
 .navbar {
-  font-family: "Snell Roundhand";
+  font-family: "Italianno";
 }
 
-h1, h2, h3, footer {
-  font-family: "Segoe UI";
+h1, h2, h3 {
+  font-family: "Comfortaa";
 }
 
-.journal-time, .journal-meal, .journal-mood {
-  font-family: "Franklin Gothic Medium";
+.journal-time, .journal-meal, .journal-mood, h5 {
+  font-family: "Poppins";
   font-weight: lighter;
 }
 
 p, #food-fact-content, span {
-  font-family: "Franklin Gothic Medium";
+  font-family: "Poppins";
 }
 
 .grid {

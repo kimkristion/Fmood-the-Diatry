@@ -39,12 +39,11 @@ You can reach Jeremiah with any questions or comments [here](https://twitter/__d
 
 ## Authors and Acknowledgment
 
-<!-- Add your Github profile link here -->
-- Sean Keller
+- Sean Keller - [Neuroventure](https://github.com/Neuroventure)
 - Jeremiah Haynes - [dsatpm](https://github.com/dsatpm)
-- Salome Mphago
-- Justin Schultz
-- Kristion Kim
+- Salome Mphago - [Saiishago](https://github.com/Saiishago)
+- Justin Schultz - [justin-schultz37](https://github.com/justin-schultz37)
+- Kristion Kim - [kimkristion](https://github.com/kimkristion)
 
 ## Project Status
 
