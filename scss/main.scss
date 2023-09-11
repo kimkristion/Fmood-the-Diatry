@@ -15,9 +15,9 @@ $third-base: #d1edf2;
 $shaddy: #434b56;
 
 $font-family: (
-    'heading': 'Segoe UI',
-    'navigation': 'Snell Roundhand',
-    'other-text': 'Franklin Gothic Medium',
+    'heading': 'Comfortaa',
+    'navigation': 'Italianno',
+    'other-text': 'Poppins',
 );
 
 $font-size: (
@@ -46,6 +46,14 @@ $width: (
     'wide': 100px,
     'wide-ish': 200px,
     'wider': 500px,
+);
+
+$border-radius: (
+    'lowest': 0.2rem,
+    'lower': 5px,
+    'normal': 0.5rem,
+    'higher': 1rem,
+    'highest': 2rem,
 );
 
 body {
@@ -109,7 +117,7 @@ h3 {
     line-height: map-get($line-height,regular);
 }
   
-footer {
+h5 {
     font-size: map-get($font-size,smallest);
     line-height: map-get($line-height,regular);
     font-weight: lighter;
@@ -124,11 +132,11 @@ p {
     font-family: map-get($font-family,navigation);
   }
   
-  h1, h2, h3, footer {
+  h1, h2, h3{
    font-family: map-get($font-family,heading);
   }
   
-  .journal-time, .journal-meal, .journal-mood {
+  .journal-time, .journal-meal, .journal-mood, h5{
     font-family:map-get($font-family,other-text);
     font-weight: lighter;
   }
@@ -177,12 +185,12 @@ p {
     padding: 0.5rem 2rem;
     width: 80%;
     margin-bottom: 20px;
-    border-radius: 0.2rem;
+    border-radius: map-get($border-radius, lowest);
 }
   
 #nutrition-button {
     padding: 0.5rem 1.5rem;
-    border-radius: 0.2rem;
+    border-radius: map-get($border-radius, lowest);
     cursor: pointer;
     border: 0.5px solid $bright;
 }
@@ -199,7 +207,7 @@ p {
     margin-top: 40px;
     background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
     border: 2px solid $bright;
-    border-radius: 0.5rem;
+    border-radius: map-get($border-radius, normal);
 }
 
 .grid-content {
@@ -211,7 +219,7 @@ p {
     background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
     background-image: url(../images/bg.jpeg) no-repeat center / cover;
     border: 2px solid $bright;
-    border-radius: 0.5rem;
+    border-radius: map-get($border-radius, normal);
 }
 
 .modal-container {
@@ -235,7 +243,7 @@ p {
     width: 500px;
     height: auto;
     box-shadow: 0 4px 8px $shaddy;
-    border-radius: 5px;
+    border-radius: map-get($border-radius, lower);
 }
 
 #openModal {
@@ -265,7 +273,7 @@ p {
     background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
     overflow-x: hidden;
     border: 2px solid $bright;
-    border-radius: 0.5rem;
+    border-radius: map-get($border-radius, normal);
 }
 
 #food-fact-content {
@@ -289,7 +297,7 @@ p {
     border: 2px solid $bright;
     transform: translate(-50%, -50%);
     background-color: $light;
-    border-radius: .5rem;
+    border-radius: map-get($border-radius, normal);
     height: 640px;
 }
 
@@ -376,7 +384,7 @@ p {
     margin-left: 25%;
     padding: 1rem;
     text-transform: lowercase;
-    border-radius: 1rem;
+    border-radius: map-get($border-radius, higher);
     cursor: pointer;
 }
 
@@ -389,7 +397,7 @@ button {
     font-size: 20px;
     transition: background-color 0.3s ease;
     padding: 1rem;
-    border-radius: 0.2rem;
+    border-radius: map-get($border-radius, lowest);
     box-shadow:  0 12px 20px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
