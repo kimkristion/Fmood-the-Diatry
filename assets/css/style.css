@@ -1,3 +1,4 @@
+/* Custom Variables */
 :root {
   --base: ghostwhite;
   --light: #106E71;
@@ -8,6 +9,8 @@
   --shaddy: #434b56;
 }
 
+
+/* Viewport Alignment Reset */
 *,
 *::before,
 *::after {
@@ -16,7 +19,7 @@
   box-sizing: border-box;
 }
 
-
+/* Element Tags */
 body {
   background-color: var(--light);
   color: var(--bright);
@@ -30,8 +33,76 @@ nav {
   height: 104px;
 }
 
-.navbar,
-.resources-navbar {
+a {
+  letter-spacing: 1px;
+  position: relative;
+  color: var(--base);
+  text-decoration: none;
+}
+
+li {
+  display: inline-block;
+  margin: 5px 20px;
+  list-style: none;
+}
+
+h1 {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 2.5rem;
+  line-height: 2rem;
+  margin-bottom: 14px;
+}
+
+h3 {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 1.7rem;
+}
+
+h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+}
+
+h5 {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+  letter-spacing: 1px;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  width: 500px;
+  letter-spacing: 1px;
+}
+
+button {
+  display: inline-block;
+  background-color: var(--light);
+  color: var(--bright);
+  border: 0.5px solid var(--bright);
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+span {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  font-family: 'Tangerine', cursive;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -47,68 +118,7 @@ nav {
   background-repeat: no-repeat;
 }
 
-a {
-  color: var(--bright);
-  text-decoration: none;
-}
-
-li {
-  display: inline-block;
-  font-size: 1rem;
-  padding: 0 1.3rem;
-  list-style: none;
-}
-
-li:hover {
-  text-decoration: underline;
-}
-
-h1 {
-  font-size: 3rem;
-  line-height: 3.5rem;
-}
-
-h2 {
-  font-size: 2.5rem;
-  line-height: 3rem;
-}
-
-h3 {
-  font-size: 1.7rem;
-  line-height: 2.5rem;
-}
-
-footer {
-  font-size: 1rem;
-  line-height: 2.5rem;
-}
-
-p {
-  width: 500px;
-  font-size: 1.3rem;
-}
-
-.navbar {
-  font-family: fantasy, 'Italianno', cursive;;
-}
-
-h1, h2, h3{
-  font-family: 'Comfortaa', sans-serif;
-}
-
-h4, footer {
-  font-family: 'Poppins', sans-serif;
-  font-weight: lighter;
-}
-
-p, #food-fact-content, span {
-  font-family: 'Poppins', sans-serif;
-}
-
-.fa {
-  font-weight: lighter;
-}
-
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
@@ -142,21 +152,98 @@ p, #food-fact-content, span {
 .grid-left-side p {
   line-height: 24px;
   text-align: center;
+  padding-bottom: 10px;
   width: 200px;
 }
 
-#foodInput {
-  padding: 0.5rem 2rem;
-  width: 80%;
-  margin-bottom: 20px;
-  border-radius: 0.2rem;
+.grid-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: content;
+  background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.726), rgba(0, 0, 0, 0.714));
+  border: 3px solid var(--bright);
+  border-radius: 0.5rem;
 }
 
-#nutrition-button {
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.2rem;
-  cursor: pointer;
-  border: 0.5px solid var(--bright);
+.grid-right-side {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-area: right;
+  width: 300px;
+}
+
+/* Journal Grid */
+.journal-grid {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "jheader jheader jheader jheader"
+    "jleft jmeal jmood jmood"
+    "jleft jmeal jmood jmood"
+    "jleft jmeal jmood jmood"
+    "jleft jmeal jmood jmood ";
+  gap: 5px;
+  margin: 0 1rem;
+  padding: 0 1rem;
+  border: 3px solid var(--bright);
+  border-radius: 0.5rem;
+  background-color: var(--dark);
+  height: 100vh;
+}
+
+.journal-header {
+  grid-area: jheader;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  align-items: center;
+  border-bottom: 1px solid var(--bright);
+  text-align: center;
+}
+
+.journal-time {
+  grid-area: jleft;
+  border-right: 1px solid var(--bright);
+}
+
+.journal-meal {
+  grid-area: jmeal;
+  padding-left: 1rem;
+  border-right: 1px solid var(--bright);
+}
+
+.journal-mood {
+  grid-area: jmood;
+  padding-left: 1rem;
+}
+
+/* Containers */
+#landingPageContainer {
+  background-image: url('placeholder.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  padding: 2rem;
+  border-radius: 0.5rem;
+  transform: translateX(-20%) translateY(30px);
+  background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
+}
+
+.hero-content h3 {
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  margin-bottom: 22px;
 }
 
 .food-info {
@@ -174,39 +261,50 @@ p, #food-fact-content, span {
   border-radius: 0.5rem;
 }
 
-.grid-content {
+#food-fact-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  grid-area: content;
-  background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.726), rgba(0, 0, 0, 0.714));
+  justify-content: center;
+  margin-right: 1rem;
+  margin-top: 35px;
+  padding: 1.5rem;
+  height: 300px;
+  background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
+  overflow-x: hidden;
   border: 2px solid var(--bright);
   border-radius: 0.5rem;
 }
 
-.hero-content {
-  width: 70%;
-  padding: 1rem 1.3rem;
-  border-radius: 5px;
-  transform: translateX(-30%) translateY(30px);
-  background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
+#foodInput {
+  padding: 0.5rem 2rem;
+  width: 80%;
+  margin-bottom: 20px;
+  border-radius: 0.2rem;
 }
 
-.hero-content h3 {
-  margin-bottom: 10px;
+#food-fact-content {
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  font-size: 1.3rem;
+  width: 210px;
+  justify-self: center;
+  align-self: center;
 }
 
-.hero-content p {
-  margin-bottom: 22px;
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-#landingPageContainer {
-  background-image: url('placeholder.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
+/* Modal Properties */
 .modal-container {
   display: none;
   position: fixed;
@@ -228,7 +326,15 @@ p, #food-fact-content, span {
   width: 500px;
   height: auto;
   box-shadow: 0 4px 8px var(--shaddy);
-  border-radius: 5px;
+  border-radius: 0.5rem;
+}
+
+.thecontent {
+  display: flex;
+}
+
+.thecontent span {
+  padding: 1rem;
 }
 
 #openModal {
@@ -236,39 +342,9 @@ p, #food-fact-content, span {
   padding: 0.8rem 1.4rem;
 }
 
-.grid-right-side {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  grid-area: right;
-  width: 300px;
-}
-
-#food-fact-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
-  margin-top: 35px;
-  padding: 1.5rem;
-  height: 300px;
-  background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
-  overflow-x: hidden;
-  border: 2px solid var(--bright);
-  border-radius: 0.5rem;
-}
-
-#food-fact-content {
-  position: relative;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  font-size: 1.3rem;
-  width: 210px;
-  justify-self: center;
-  align-self: center;
+.closeBtn {
+  padding-right: .5rem;
+  cursor: pointer;
 }
 
 #themodal {
@@ -282,21 +358,22 @@ p, #food-fact-content, span {
   border: 2px solid var(--bright);
   transform: translate(-50%, -50%);
   background-color: var(--light);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   height: 640px;
 }
 
-.thecontent {
-  display: flex;
+#nutrition-button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  border: 0.5px solid var(--bright);
 }
-
 
 .left-side {
   flex: 1;
   padding: 1rem;
   background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565)), url(../images/modal.jpg);
-  border-top-left-radius: .5rem;
-  border-bottom-left-radius: .5rem;
+  border-radius: 0.5rem;
   height: 635px;
   display: flex;
   justify-content: center;
@@ -315,17 +392,14 @@ p, #food-fact-content, span {
 }
 
 .right-side input {
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   display: flex;
   justify-content: center;
   padding: 5px 10px;
   margin-bottom: 2rem;
   box-sizing: border-box;
   width: 100%;
-
-
 }
-
 
 #foodinput {
   background-position: 1%;
@@ -334,7 +408,6 @@ p, #food-fact-content, span {
   background-repeat: no-repeat;
   background-size: 2.2rem;
   padding: 10px 22px 10px 44px;
-
 }
 
 #feelWhile {
@@ -344,7 +417,6 @@ p, #food-fact-content, span {
   background-repeat: no-repeat;
   background-size: 2.2rem;
   padding: 10px 22px 10px 44px;
-
 }
 
 #feelAfter {
@@ -373,85 +445,98 @@ p, #food-fact-content, span {
   margin-left: 25%;
   padding: 1rem;
   text-transform: lowercase;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   cursor: pointer;
 }
 
-button {
-  display: inline-block;
-  background-color: var(--light);
-  color: var(--bright);
-  border: 0.5px solid var(--bright);
-  cursor: pointer;
-  font-size: 20px;
-  transition: background-color 0.3s ease;
-  padding: 1rem;
-  border-radius: 0.2rem;
-  box-shadow:  0 12px 20px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+/* Page Specific Styles */
+.resources,
+.about {
+  gap: 20px;
 }
 
+.about h1,
+.resources h1 {
+  padding-bottom: 14px;
+}
+
+.about {
+  background-color: var(--shaddy);
+  gap: 16px;
+}
+
+.resources p {
+  width: 440px;
+}
+
+.authors {
+  gap: 10px;
+}
+
+.emphasis {
+  background-color: var(--second-base);
+  font-weight: bold;
+}
+
+.heart {
+  color: var(--second-base);
+}
+
+.fa {
+  font-weight: lighter;
+}
+
+/* Hover and Highlight Effects */
 button:hover {
   background-color: var(--dark);
 }
 
-.closeBtn {
-  padding-right: .5rem;
-  cursor: pointer;
-
+.underline {
+  font-size: 1.6rem;
+  position: relative;
 }
 
-.thecontent span {
-  padding: 1rem;
+.underline::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: var(--second-base);
+  bottom: -6px;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 300ms ease-in-out;
 }
 
-.journal-container {
-  display: grid;
-  grid-template-columns: 100px 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "jheader jheader jheader jheader"
-    "jleft jmeal jmood jmood"
-    "jleft jmeal jmood jmood"
-    "jleft jmeal jmood jmood"
-    "jleft jmeal jmood jmood ";
-  gap: 5px;
-  margin: 0 1.5rem;
+.underline:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
 }
 
-.journal-header {
-  grid-area: jheader;
-  border: 1px solid var(--bright);
-  border-radius: 0.5rem;
-  text-align: center;
+.highlight {
+  box-shadow: inset 0 0 0 0 var(--second-base);
+  color: var(--base);
+  margin: 0 -.25rem;
+  padding: 0 .25rem;
+  transition: color 300ms ease-in-out, box-shadow 300ms ease-in-out;
 }
 
-.journal-time {
-  grid-area: jleft;
-  border: 1px solid var(--bright);
-  border-radius: 0.2rem 0rem 0rem 0.2rem;
-
+.highlight:hover {
+  box-shadow: inset 200px 0 0 0 var(--second-base);
+  color: var(--base);
 }
 
-.journal-meal {
-  grid-area: jmeal;
-  border: 1px solid var(--bright);
-
+.slide-in {
+  animation-name: slideIn;
 }
 
-.journal-mood {
-  grid-area: jmood;
-  border: 1px solid var(--bright);
-  border-radius: 0rem 0.2rem 0.2rem 0rem;
-
+.slide-out {
+  animation-name: slideOut;
 }
 
-
-
-footer {
-  text-align: center;
-  font-weight: lighter;
-}
-
+/* Keyframes Animations */
 @keyframes slideIn {
   0% {
     transform: translateX(120%);
@@ -470,12 +555,4 @@ footer {
   100% {
     transform: translateX(-120%);
   }
-}
-
-.slide-in {
-  animation-name: slideIn;
-}
-
-.slide-out {
-  animation-name: slideOut;
 }
