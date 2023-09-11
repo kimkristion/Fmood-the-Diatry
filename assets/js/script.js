@@ -282,6 +282,15 @@ function coolFoodInfo() {
 	setTimeout(coolFoodInfo, 6000);
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+	const menuToggle = document.querySelector('.toggle-menu');
+	const navLinks = document.querySelector('.nav-links');
+
+	menuToggle.addEventListener('click', function() {
+		navLinks.classList.toggle('active');
+	});
+});
+
 // Event listener for initial page load and runs coolFoodInfo function after load
 window.addEventListener('load', function (event) {
 	event.preventDefault();

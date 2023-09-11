@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <div class="responsive-container">
 
   <!-- Grid Container -->
   <div class="grid">
@@ -20,7 +21,12 @@
 
       <!-- Page Navigation -->
       <nav class="navbar">
-        <ul>
+        <div class="toggle-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <ul class="nav-links">
           <li class="underline"><a href="./index.html">Home</a></li>
           <li class="underline"><a href="./journal.html">Journal</a></li>
           <li class="underline"><a href="./about.html">About</a></li>
@@ -76,8 +82,8 @@
         <form id="foodForm">
           <input type="text" placeholder="what did you eat..." id="foodinput">
           <input type="text" placeholder="how did you feel while eating..." id="feelWhile">
-          <!--input type="text" placeholder="how did you feel after eating..." id="feelAfter">
-          <input type="text" placeholder="would you eat that food again..." id="conclusion">-->
+          <input type="text" placeholder="how did you feel after eating..." id="feelAfter">
+          <input type="text" placeholder="would you eat that food again..." id="conclusion">
           <button type="submit" id="modalSubmit">
            <a href="./journal.html">Submit</a>
            </button>
@@ -95,6 +101,8 @@
       &copy; FMood, 2023
     </p>
   </footer>
+
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
