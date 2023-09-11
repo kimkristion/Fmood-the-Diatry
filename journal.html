@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Poppins:wght@200&family=Tangerine:wght@700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <title>About Us</title>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="grid-header">
+    <a href="./index.html"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
+    <nav class="navbar">
+      <ul>
+        <li class="nav-item underline"><a href="./index.html">Home</a></li>
+        <li class="nav-item underline"><a href="./journal.html">Journal</a></li>
+        <li class="nav-item underline"><a href="./about.html">About</a></li>
+        <li class="nav-item underline"><a href="./resources.html">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Journal Content -->
+    <div id="journal">
+      <div class="journal-grid">
+        <div class="journal-header">
+          <h1>The FMood Journal</h1>
+        <p>Use this journal area as your log to track your eating habits, and how they may affect your mood. If you see a blank page, return to the Home page and click the button to record an entry :)</p>
+        </div>
+
+        <!-- Time of Meal - Added Dynamically -->
+        <div class="journal-time">
+          <h4>Log Time</h4>
+          <ul id="dynamic-time">
+          </ul>
+        </div>
+
+        <!-- Food Eaten - Added Dynamically -->
+        <div class="journal-meal">
+          <h4>Meal Entry</h4>
+          <ul id="dynamic-meal">
+          </ul>
+        </div>
+
+        <!-- Document Mood - Added Dynamically -->
+        <div class="journal-mood">
+          <h4>Mood Entry</h4>
+          <ul id="dynamic-mood">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <h5>
+      What You Eat Says A Lot About How You Feel & How You Want To Feel
+    </h5>
+    <p>
+      &copy; FMood, 2023
+    </p>
+  </footer>
+
+</body>
+
+</html>

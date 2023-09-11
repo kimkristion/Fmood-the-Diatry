@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo+Black&family=Comfortaa:wght@300;400;500;600;700&family=Italianno&
-   family=Parisienne&family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="./dist/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Poppins:wght@200&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" href="./dist/css/main.css"> -->
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>FMood</title>
@@ -17,15 +16,15 @@
   <!-- Grid Container -->
   <div class="grid">
     <header class="grid-header">
-      <a href="#"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
+      <a href="./index.html"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
 
       <!-- Page Navigation -->
       <nav class="navbar">
         <ul>
-          <li class="nav-item"><a href="./index.html">Home</a></li>
-          <li class="nav-item"><a href="#journal-section">Journal</a></li>
-          <li class="nav-item"><a href="./about.html">About</a></li>
-          <li class="nav-item"><a href="./resources.html">Resources</a></li>
+          <li class="underline"><a href="./index.html">Home</a></li>
+          <li class="underline"><a href="./journal.html">Journal</a></li>
+          <li class="underline"><a href="./about.html">About</a></li>
+          <li class="underline"><a href="./resources.html">Resources</a></li>
         </ul>
       </nav>
     </header>
@@ -36,7 +35,7 @@
       <h2 class="log-header">Curious?</h2>
       <p>Enter a meal or a single item and get some nutrition facts!</p>
       <input type="text" id="foodInput" placeholder="Ex: 1 pizza slice or 2 apples">
-      <button type="submit" id="nutrition-button">Get Nutrition Info</button>
+      <button type="submit" id="nutrition-button">Get the Facts</button>
       <div id="foodInfoContainer">
         <div class="food-info"></div>
       </div>
@@ -66,30 +65,6 @@
     </div>
   </div>
 
-  <!--Journal -->
-  <div id="journal-section"></div>
-  <div class="journal-container">
-    <h2 class="journal-header">Journal Section</h2>
-
-    <div class="journal-time">
-      <h4>Log Time</h4>
-      <ul id="dynamic-time">
-      </ul>
-    </div>
-
-    <div class="journal-meal">
-      <h4>Meal Entry</h4>
-      <ul id="dynamic-meal">
-      </ul>
-    </div>
-
-    <div class="journal-mood">
-      <h4>Mood Entry</h4>
-      <ul id="dynamic-mood">
-      </ul>
-    </div>
-  </div>
-
   <!--Modal Container -->
   <div id="themodal" class="modal" style="display: none;">
     <div class="thecontent">
@@ -103,14 +78,23 @@
           <input type="text" placeholder="how did you feel while eating..." id="feelWhile">
           <!--input type="text" placeholder="how did you feel after eating..." id="feelAfter">
           <input type="text" placeholder="would you eat that food again..." id="conclusion">-->
-          <button id="modalSubmit">Submit</button>
+          <button type="submit" id="modalSubmit">
+           <a href="./journal.html">Submit</a>
+           </button>
         </form>
       </div>
       <h3 onclick="closeModal()" class="closeBtn">&times</h3>
     </div>
   </div>
 
-  <footer>What You Eat Says A Lot About How You Feel/ Want To Feel</footer>
+  <footer class="footer">
+    <h5>
+      What You Eat Says A Lot About How You Feel & How You Want To Feel
+    </h5>
+    <p>
+      &copy; FMood, 2023
+    </p>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>

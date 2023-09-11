@@ -144,7 +144,6 @@ function captureInputs() {
 
 function resetModal() {
 	inputsformodal.forEach(input => input.value = "");
-
 }
 
 function falseRefresh(event) {
