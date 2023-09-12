@@ -1,6 +1,3 @@
-
-
-
 // Global variables
 var foodFacts = [
 	{
@@ -97,8 +94,8 @@ var foodFacts = [
 ];
 const nutritionId = '57cd6407';
 const nutritionKey = '53f48a56cd74f814fc87643c36d779cd';
-const foodInput = document.getElementById('foodInput');
-const feelingsInput = document.getElementById('feelingsInput');
+// const foodInput = document.getElementById('foodInput');
+// const feelingsInput = document.getElementById('feelingsInput');
 const timeNow = dayjs();
 const day = timeNow.format('dddd');
 const timeHour = timeNow.format('h');
@@ -106,6 +103,7 @@ const timeMinutes = timeNow.format('mm');
 const AMPM = timeNow.format('a');
 const month = timeNow.format('MMM');
 const date = timeNow.format('D');
+var journalEntries = [];
 
 var modalsubmit = document.getElementById('modalSubmit');
 var dynamictime = document.getElementById('dynamic-time');
@@ -114,36 +112,60 @@ var dynamicmood = document.getElementById('dynamic-mood');
 
 let inputsformodal = document.querySelectorAll('inputs');
 
-//This function captures the time, meal and mood, and sets them to varibles. 
+//This function captures the time, meal and mood, and sets them to varibles.
 function captureInputs() {
-	//const currentTime = new Date();
-	//const formattedTime = currentTime.format('MMM:D');
-	const foodInput = document.getElementById('food-input');
-	const feelInput = document.getElementById('feel-input');
-	const foodInputValue = document.getElementById('food-input').value;
-	const feelInputValue = document.getElementById('feel-input').value;
+	const foodInput = document.getElementById('food-input').value;
+	const feelInput = document.getElementById('feel-input').value;
 
-	if (foodInputValue === "" || feelInputValue === "") {
-		foodInput.placeholder = "please input value";
-		feelInput.placeholder = "please input value";
-	}
-	else {
-		var newlisttime = document.createElement('li');
-		var newlistfood = document.createElement('li');
-		var newlistmood = document.createElement('li');
-		newlisttime.innerHTML = month + " " + date;
-		newlistfood.innerHTML = foodInputValue;
-		newlistmood.innerHTML = feelInputValue;
-		dynamictime.append(newlisttime);
-		dynamicfood.append(newlistfood);
-		dynamicmood.append(newlistmood);
+	if (foodInput && feelInput) {
+		const journalEntry = {
+			time: dayjs().format('MMM D'),
+			meal: foodInput,
+			mood: feelInput,
+		};
+
+		journalEntries.push(journalEntry);
+
+		localStorage.setItem('journalEntries', JSON.stringify(journalEntries));
+
+		displayEntries();
+
+		document.getElementById('food-input').value = '';
+		document.getElementById('feel-input').value = '';
+	} else {
+		document.getElementById('food-input').placeholder = 'Please input food';
+		document.getElementById('feel-input').placeholder =
+			'Please input feelings';
 		closeModal();
 	}
-	
+}
+
+function displayEntries() {
+	const dynamicTime = document.getElementById('dynamic-time');
+	const dynamicMeal = document.getElementById('dynamic-meal');
+	const dynamicMood = document.getElementById('dynamic-mood');
+
+	dynamicTime.innerHTML = '';
+	dynamicMeal.innerHTML = '';
+	dynamicMood.innerHTML = '';
+
+	journalEntries.forEach((entry) => {
+		const timeListItem = document.createElement('li');
+		const mealListItem = document.createElement('li');
+		const moodListItem = document.createElement('li');
+
+		timeListItem.textContent = `${entry.time}`;
+		mealListItem.textContent = `${entry.meal}`;
+		moodListItem.textContent = `${entry.mood}`;
+
+		dynamicTime.appendChild(timeListItem);
+		dynamicMeal.appendChild(mealListItem);
+		dynamicMood.appendChild(moodListItem);
+	});
 }
 
 function resetModal() {
-	inputsformodal.forEach(input => input.value = "");
+	inputsformodal.forEach((input) => (input.value = ''));
 }
 
 function falseRefresh(event) {
@@ -173,9 +195,10 @@ function openModal() {
 function closeModal() {
 	document.getElementById('themodal').style.display = 'none';
 	let inputs = document.querySelectorAll('input');
-	document.getElementById('food-input').placeholder = "what did you eat...?";
-	document.getElementById('feel-input').placeholder = "how did you feel while eating...?";
-	inputs.forEach(input => input.value = "");
+	document.getElementById('food-input').placeholder = 'what did you eat...?';
+	document.getElementById('feel-input').placeholder =
+		'how did you feel while eating...?';
+	inputs.forEach((input) => (input.value = ''));
 }
 
 // Function that calls for information from 'food' through the API
@@ -235,11 +258,11 @@ function foodInfoContainer(data) {
 	const foodContainerDiv = document.createElement('div');
 	foodContainerDiv.classList.add('food-info');
 
-	const foodLabelEl = document.createElement('p'); // 
+	const foodLabelEl = document.createElement('p'); //
 	foodLabelEl.textContent = `Food: ${foodLabel}`; // Creates
 	const caloriesEl = document.createElement('p'); // Elements
 	caloriesEl.textContent = `Calories: ${calories}`; // Dynamically to
-	const proteinEl = document.createElement('p'); // Contain 
+	const proteinEl = document.createElement('p'); // Contain
 	proteinEl.textContent = `Protein: ${protein}`; // Relevant
 	const carbsEl = document.createElement('p'); // Food
 	carbsEl.textContent = `Carbs: ${carbs}`; // Information
@@ -282,8 +305,22 @@ function coolFoodInfo() {
 	setTimeout(coolFoodInfo, 6000);
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+	const menuToggle = document.querySelector('.toggle-menu');
+	const navLinks = document.querySelector('.nav-links');
+
+	menuToggle.addEventListener('click', function () {
+		navLinks.classList.toggle('active');
+	});
+});
+
 // Event listener for initial page load and runs coolFoodInfo function after load
 window.addEventListener('load', function (event) {
 	event.preventDefault();
 	coolFoodInfo();
+	const storedJSON = localStorage.getItem('journalEntries');
+	if (storedJSON) {
+		journalEntries = JSON.parse(storedJSON);
+		displayEntries();
+	}
 });

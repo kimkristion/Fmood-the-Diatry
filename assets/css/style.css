@@ -33,19 +33,6 @@ nav {
   height: 104px;
 }
 
-a {
-  letter-spacing: 1px;
-  position: relative;
-  color: var(--base);
-  text-decoration: none;
-}
-
-li {
-  display: inline-block;
-  margin: 5px 20px;
-  list-style: none;
-}
-
 h1 {
   font-family: 'Comfortaa', sans-serif;
   font-size: 3rem;
@@ -83,6 +70,11 @@ p {
   letter-spacing: 1px;
 }
 
+li {
+  list-style: none;
+  padding-top: 14px;
+}
+
 button {
   display: inline-block;
   background-color: var(--light);
@@ -116,6 +108,36 @@ span {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.toggle-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  margin: 3px 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin-right: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  letter-spacing: 1px;
+  position: relative;
+  color: var(--base);
 }
 
 /* Grid */
@@ -401,7 +423,7 @@ span {
   width: 100%;
 }
 
-#foodinput {
+#food-input {
   background-position: 1%;
   background-image: url(../images/food.jpg);
   padding-left: 1rem;
@@ -410,27 +432,9 @@ span {
   padding: 10px 22px 10px 44px;
 }
 
-#feelWhile {
+#feel-input {
   background-position: 1%;
   background-image: url(../images/thoughts.jpg);
-  padding-left: 1rem;
-  background-repeat: no-repeat;
-  background-size: 2.2rem;
-  padding: 10px 22px 10px 44px;
-}
-
-#feelAfter {
-  background-position: 1%;
-  background-image: url(../images/feeling.png);
-  padding-left: 1rem;
-  background-repeat: no-repeat;
-  background-size: 2.2rem;
-  padding: 10px 22px 10px 44px;
-}
-
-#conclusion {
-  background-position: 1%;
-  background-image: url(../images/foodforthought.png);
   padding-left: 1rem;
   background-repeat: no-repeat;
   background-size: 2.2rem;
@@ -447,6 +451,11 @@ span {
   text-transform: lowercase;
   border-radius: 0.5rem;
   cursor: pointer;
+}
+
+#modalSubmit a {
+  color: var(--base);
+  text-decoration: none;
 }
 
 /* Page Specific Styles */
@@ -554,5 +563,44 @@ button:hover {
 
   100% {
     transform: translateX(-120%);
+  }
+}
+
+/* Responsive Design Properties */
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'header'
+      'right'
+      'content'
+      'left';
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    background-color: var(--light);
+    width: 100%;
+    transition: left 300ms ease;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .toggle-menu {
+    display: block;
   }
 }
