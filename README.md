@@ -1,7 +1,7 @@
 # Fmood, the Diatry
 
 Fmood, the Diatry was created to help users bring mindfulness to how the food they eat affects their mood! <br>
-This project utilized two API's as well as JavaScript to add dynamic interactivity that the user can utilize to gather nutritional facts and information about food. Here is the link to the deployed project [here](https://google.com) **link is just a placeholder** <!-- Add actual deployed link -->
+This project utilized two API's as well as JavaScript to add dynamic interactivity that the user can utilize to gather nutritional facts and information about food. Here is the link to the deployed project [here]([https://google.com](https://neuroventure.github.io/Fmood-the-Diatry/)) **link is just a placeholder** <!-- Add actual deployed link -->
 
 
 ## User Story
