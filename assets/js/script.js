@@ -122,7 +122,9 @@ function captureInputs() {
 			time: dayjs().format('MMM D'),
 			meal: foodInput,
 			mood: feelInput,
+		
 		};
+		closeModal()
 
 		journalEntries.push(journalEntry);
 
