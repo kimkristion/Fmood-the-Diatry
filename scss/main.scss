@@ -1,3 +1,4 @@
+/* Viewport Alignment Reset */
 *,
 *::before,
 *::after {
@@ -6,6 +7,7 @@
   box-sizing: border-box;
 };
 
+/* Custom Variables */
 $base: ghostwhite;
 $light: #106E71;
 $bright: #F7E7CE;
@@ -56,6 +58,7 @@ $border-radius: (
     'highest': 2rem,
 );
 
+/* Element Tags */
 body {
     background-color: $light;
     color: $bright;
@@ -64,42 +67,32 @@ body {
     height: map-get($height,adult);
 }
 
-nav {
-    width: 100%;
-    height: map-get($height,tween);
-}
-  
-.navbar,
-.resources-navbar {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 20px;
-    border-bottom: 0.4px solid $bright;
-}
-
-.logo {
-    height: 150px;
-    width: 200px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-  
 a {
     color: $bright;
     text-decoration: none;
+    letter-spacing: 1px;
+    position: relative;
 }
 
 li {
     display: inline-block;
-    font-size: map-get($font-size,smallest);
+    margin: 5px 20px;
     padding: 0 1.3rem;
     list-style: none;
 }
-  
-  li:hover {
-    text-decoration: underline;
+
+nav {
+    width: 100%;
+    height: map-get($height,tween);
+}
+
+h1, h2, h3 {
+    font-family: map-get($font-family,heading);
+    font-weight: bold;
+}
+
+h4, h5, p, span {
+    font-family:map-get($font-family,other-text);
 }
 
 h1 {
@@ -116,6 +109,11 @@ h3 {
     font-size:map-get($font-size,small);
     line-height: map-get($line-height,regular);
 }
+
+h4 {
+    font-size:map-get($font-size,small);
+    line-height: map-get($line-height,regular);
+}
   
 h5 {
     font-size: map-get($font-size,smallest);
@@ -128,23 +126,38 @@ p {
     font-size: map-get($font-size,smallest);
 }
 
+button {
+    display: inline-block;
+    background-color: $light;
+    color: $bright;
+    border: 0.5px solid $bright;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    padding: 1rem;
+    border-radius: map-get($border-radius, lowest);
+    box-shadow:  0 12px 20px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* Navigation Bar */
 .navbar {
     font-family: map-get($font-family,navigation);
-  }
-  
-  h1, h2, h3{
-   font-family: map-get($font-family,heading);
-  }
-  
-  .journal-time, .journal-meal, .journal-mood, h5{
-    font-family:map-get($font-family,other-text);
-    font-weight: lighter;
-  }
-  
-  p, #food-fact-content, span {
-    font-family:map-get($font-family,other-text);
-  }
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+    border-bottom: 0.4px solid $bright;
+}
 
+.logo {
+    height: 150px;
+    width: 200px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Grid */
 .grid {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
@@ -166,6 +179,26 @@ p {
     justify-content: center;
     grid-area: header;
 }
+
+.grid-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: content;
+    padding-left: 240px;
+    background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
+    border: 2px solid $bright;
+    border-radius: map-get($border-radius, normal);
+}
+
+.grid-content-journal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: content;
+    background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
+    border-radius: map-get($border-radius, normal);
+}
   
 .grid-left-side {
     display: flex;
@@ -174,27 +207,78 @@ p {
     justify-content: center;
     grid-area: left;
 }
+
+.grid-right-side {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-area: right;
+    width: 300px;
+}
   
 .grid-left-side p {
     margin-bottom: 20px;
     text-align: center;
     width: map-get($width,wide-ish);
+    padding-bottom: 10px;
+}
+/* Journal Grid */
+.journal-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "jheader jheader jheader jheader"
+      "jleft jmeal jmood jmood"
+      "jleft jmeal jmood jmood"
+      "jleft jmeal jmood jmood"
+      "jleft jmeal jmood jmood ";
+    gap: 5px;
+    padding: 0 1rem;
+    border: 3px solid $third-base;
+    border-radius: 0.5rem;
+    height: 100vh;
+    background-color: $dark;
 }
 
-#foodInput {
-    padding: 0.5rem 2rem;
-    width: 80%;
-    margin-bottom: 20px;
-    border-radius: map-get($border-radius, lowest);
+.journal-time, .journal-meal, .journal-mood{
+    font-family:map-get($font-family,other-text);
+    font-weight: lighter;
+    border: 1px solid $bright;
+}
+
+.journal-header {
+    grid-area: jheader;
+    border-bottom: 1px solid $bright;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    align-items: center;
+}
+
+.journal-time {
+    grid-area: jleft;
+    border-radius: 0.2rem 0rem 0rem 0.2rem;
+  
+}
+
+.journal-meal {
+    grid-area: jmeal;
+    padding-left: 1rem;
+  
 }
   
-#nutrition-button {
-    padding: 0.5rem 1.5rem;
-    border-radius: map-get($border-radius, lowest);
-    cursor: pointer;
-    border: 0.5px solid $bright;
+.journal-mood {
+    grid-area: jmood;
+    border-radius: 0rem 0.2rem 0.2rem 0rem;
+    padding-left: 1rem;
+  
 }
-
+/* Containers */
 .food-info {
     display: flex;
     flex-direction: column;
@@ -210,18 +294,71 @@ p {
     border-radius: map-get($border-radius, normal);
 }
 
-.grid-content {
+#food-fact-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    grid-area: content;
-    padding-left: 240px;
-    background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
-    background-image: url(../images/bg.jpeg) no-repeat center / cover;
+    margin-right: 1rem;
+    margin-top: 35px;
+    padding: 1.5rem;
+    height: 300px;
+    background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
+    overflow-x: hidden;
     border: 2px solid $bright;
     border-radius: map-get($border-radius, normal);
 }
 
+#landingPageContainer {
+    background-image: url('placeholder.jpg');
+    background-size: cover;
+    background-position: center;
+}
+  
+.hero-content {
+    padding: 2rem;
+    border-radius: map-get($border-radius, normal);
+    transform: translateX(-20%) translateY(30px);
+    background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
+}
+  
+.hero-content h3 {
+    margin-bottom: 10px;
+}
+  
+.hero-content p {
+    margin-bottom: 22px;
+}
+
+#foodInput {
+    padding: 0.5rem 2rem;
+    width: 80%;
+    margin-bottom: 20px;
+    border-radius: map-get($border-radius, lowest);
+}
+
+#food-fact-content{
+    font-family:map-get($font-family,other-text);
+    position: relative;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    font-size: 1.3rem;
+    width: 210px;
+    justify-self: center;
+    align-self: center;
+}
+
+footer {
+    text-align: center;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+/* Modal Properties */
 .modal-container {
     display: none;
     position: fixed;
@@ -246,44 +383,24 @@ p {
     border-radius: map-get($border-radius, lower);
 }
 
+.thecontent {
+    display: flex;
+}
+
+.thecontent span {
+    padding: 1rem;
+}
+
+#nutrition-button {
+    padding: 0.5rem 1.5rem;
+    border-radius: map-get($border-radius, lowest);
+    cursor: pointer;
+    border: 0.5px solid $bright;
+}
+
 #openModal {
     width: 250px;
     padding: 0.8rem 1.4rem;
-}
-
-.grid-right-side {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    grid-area: right;
-    width: 300px;
-}
-
-#food-fact-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-    margin-top: 35px;
-    padding: 1.5rem;
-    height: 300px;
-    background: linear-gradient(0.5turn, rgba(0, 0, 0, 0.668), rgba(0, 0, 0, 0.668));
-    overflow-x: hidden;
-    border: 2px solid $bright;
-    border-radius: map-get($border-radius, normal);
-}
-
-#food-fact-content {
-    position: relative;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    font-size: 1.3rem;
-    width: 210px;
-    justify-self: center;
-    align-self: center;
 }
 
 #themodal {
@@ -301,16 +418,10 @@ p {
     height: 640px;
 }
 
-.thecontent {
-    display: flex;
-}
-  
-  
 .left-side {
     flex: 1;
     padding: 1rem;
     background: linear-gradient(rgba(0, 0, 0, 0.262), rgba(0, 0, 0, 0.565));
-    background-image: url(../images/modal.jpg);
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
     height: 635px;
@@ -320,6 +431,10 @@ p {
     align-items: center;
     text-align: center;
     font-size: map-get($font-size,medium);
+}
+
+.left-side{
+    background-image: url('../images/modal.jpg');
 }
 
 .right-side {
@@ -342,7 +457,7 @@ p {
 
 #foodinput {
     background-position: 1%;
-    background-image: url(../images/food.jpg);
+    background-image: url('../images/food.jpg');
     padding-left: 1rem;
     background-repeat: no-repeat;
     background-size: 2.2rem;
@@ -351,16 +466,16 @@ p {
 
 #feelWhile {
     background-position: 1%;
-    background-image: url(../images/thoughts.jpg);
+    background-image: url('../images/thoughts.jpg');
     padding-left: 1rem;
-    background-repeat: no-repeat;
+    
     background-size: 2.2rem;
     padding: 10px 22px 10px 44px;
 }
 
 #feelAfter {
     background-position: 1%;
-    background-image: url(../images/feeling.png);
+    background-image: url('../images/feeling.png');
     padding-left: 1rem;
     background-repeat: no-repeat;
     background-size: 2.2rem;
@@ -369,7 +484,7 @@ p {
 
 #conclusion {
     background-position: 1%;
-    background-image: url(../images/foodforthought.png);
+    background-image: url('../images/foodforthought.png');
     padding-left: 1rem;
     background-repeat: no-repeat;
     background-size: 2.2rem;
@@ -388,79 +503,99 @@ p {
     cursor: pointer;
 }
 
-button {
-    display: inline-block;
-    background-color: $light;
-    color: $bright;
-    border: 0.5px solid $bright;
+.closeBtn {
+    padding-right: .5rem;
     cursor: pointer;
-    font-size: 20px;
-    transition: background-color 0.3s ease;
-    padding: 1rem;
-    border-radius: map-get($border-radius, lowest);
-    box-shadow:  0 12px 20px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+/* Page Specific Styles */
+.resources,
+.about {
+  gap: 20px;
+}
+
+.about h1,
+.resources h1 {
+  padding-bottom: 14px;
+}
+
+.about {
+  gap: 16px;
+}
+
+.resources p {
+  width: 440px;
+}
+
+.authors {
+  gap: 5px;
+}
+
+.emphasis {
+  background-color: $light;
+  font-weight: bold;
+  font-family: map-get($font-family, heading);
+}
+
+.journal-grid {
+    gap: 16px;
+}
+
+.heart {
+  color: $second-base;
+}
+
+.fa {
+  font-weight: lighter;
+}
+/* Hover and Highlight Effects */
+.slide-in {
+    animation-name: slideIn;
+}
+  
+.slide-out {
+    animation-name: slideOut;
+}
+
+.underline {
+    font-size: 1.6rem;
+    position: relative;
 }
 
 button:hover {
     background-color: $dark;
 }
-  
-.closeBtn {
-    padding-right: .5rem;
-    cursor: pointer;
-  
-}
-  
-.thecontent span {
-    padding: 1rem;
+
+.underline::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background-color: $dark;
+    bottom: -6px;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
 }
 
-.journal-container {
-    display: grid;
-    grid-template-columns: 100px 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "jheader jheader jheader jheader"
-      "jleft jmeal jmood jmood"
-      "jleft jmeal jmood jmood"
-      "jleft jmeal jmood jmood"
-      "jleft jmeal jmood jmood ";
-    gap: 5px;
-    margin: 0 1.5rem;
+.underline:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
 }
-
-.journal-header {
-    grid-area: jheader;
-    border: 1px solid $bright;
-    border-radius: 0.5rem;
-    text-align: center;
-}
-
-.journal-time {
-    grid-area: jleft;
-    border: 1px solid $bright;
-    border-radius: 0.2rem 0rem 0rem 0.2rem;
+.highlight {
+    box-shadow: inset 0 0 0 0 $dark;
+    color: $bright;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color 300ms ease-in-out, box-shadow 300ms ease-in-out;
+  }
   
-}
-
-.journal-meal {
-    grid-area: jmeal;
-    border: 1px solid $bright;
-  
-}
-  
-.journal-mood {
-    grid-area: jmood;
-    border: 1px solid $bright;
-    border-radius: 0rem 0.2rem 0.2rem 0rem;
-  
-}
-
-footer {
-    text-align: center;
-    font-weight: lighter;
-}
-
+  .highlight:hover {
+    box-shadow: inset 200px 0 0 0 $dark;
+    color: $bright;
+  }
+/* Keyframes Animations */
 @keyframes slideIn {
     0% {
       transform: translateX(120%);
@@ -479,14 +614,6 @@ footer {
     100% {
       transform: translateX(-120%);
     }
-}
-  
-.slide-in {
-    animation-name: slideIn;
-}
-  
-.slide-out {
-    animation-name: slideOut;
 }
 
 

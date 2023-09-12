@@ -58,10 +58,11 @@ h4 {
 }
 
 h5 {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
   line-height: 1.3rem;
   letter-spacing: 1px;
+  font-weight: lighter;
 }
 
 p {
@@ -94,7 +95,7 @@ span {
 
 /* Navbar */
 .navbar {
-  font-family: 'Tangerine', cursive;
+  font-family: 'Italianno', cursive;
   display: flex;
   align-items: center;
   justify-content: flex-end;
