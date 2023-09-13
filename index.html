@@ -14,86 +14,65 @@
 </head>
 
 <body>
-  <div class="responsive-container">
 
-    <!-- Grid Container -->
-    <div class="grid">
-      <header class="grid-header">
-        <a href="./index.html"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
+  <!-- Grid Container -->
+  <div class="grid">
+    <header class="grid-header">
+      <a href="./index.html"><img alt="logo" class="logo" src="./assets/images/logo.png"></a>
 
-        <!-- Page Navigation -->
-        <nav class="navbar">
-          <div class="toggle-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-          </div>
-          <ul class="nav-links">
-            <li class="underline"><a href="./index.html">Home</a></li>
-            <li class="underline"><a href="./journal.html">Journal</a></li>
-            <li class="underline"><a href="./about.html">About</a></li>
-            <li class="underline"><a href="./resources.html">Resources</a></li>
-          </ul>
-        </nav>
-      </header>
-
-
-      <!-- Main Page Content -->
-      <div class="grid-left-side">
-        <h2 class="log-header">Curious?</h2>
-        <p>Enter a meal or a single item and get some nutrition facts!</p>
-        <input type="text" id="foodInput" placeholder="Ex: 1 pizza slice or 2 apples">
-        <button type="submit" id="nutrition-button">Get the Facts</button>
-        <div id="foodInfoContainer">
-          <div class="food-info"></div>
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="toggle-menu">
+          <div class="hamburger-bar"></div>
+          <div class="hamburger-bar"></div>
+          <div class="hamburger-bar"></div>
         </div>
-      </div>
+        <ul class="nav-links">
+          <li class="underline"><a href="./index.html">Home</a></li>
+          <li class="underline"><a href="./journal.html">Journal</a></li>
+          <li class="underline"><a href="./about.html">About</a></li>
+          <li class="underline"><a href="./resources.html">Resources</a></li>
+        </ul>
+      </nav>
+    </header>
 
 
-      <div class="grid-content" id="landingPageContainer">
-        <div class="hero-content">
-          <h1>FMood, Food Journal</h1>
-          <h3>Fall in love with how you feel after a meal.</h3>
-          <p><strong>Food</strong> isn't just <strong>Food</strong>. What you eat plays a role in how your mood will
-            change throughout the day.
-            Use this <strong>FMood</strong> journal to keep track of what you eat, how it makes you feel and also get
-            some <strong>Nutritional Info</strong> about what you ate
-            and what you plan to eat next.
-          </p>
-
-          <button id="openModal" onclick="openModal()">
-            Log Your Meal
-          </button>
-        </div>
-      </div>
-
-      <div class="grid-right-side">
-        <h2>Did you know?</h2>
-        <div id="food-fact-container">
-          <p id="food-fact-content"></p>
-        </div>
+    <!-- Main Page Content -->
+    <div class="grid-left-side">
+      <h2 class="log-header">Curious?</h2>
+      <p>Enter a meal or a single item and get some nutrition facts!</p>
+      <input type="text" id="foodInput" placeholder="Ex: 1 pizza slice or 2 apples">
+      <button type="submit" id="nutrition-button">Get the Facts</button>
+      <div id="foodInfoContainer">
+        <div class="food-info"></div>
       </div>
     </div>
 
-    <!--Modal Container -->
-    <div id="themodal" class="modal" style="display: none;">
-      <div class="thecontent">
-        <div class="left-side">
-          <h2 id="day"></h2>
-          <span id="hour"></span>
-        </div>
-        <div class="right-side">
-          <form id="foodForm">
-            <input type="text" placeholder="what did you eat..." id="food-input">
-            <input type="text" placeholder="how did you feel while eating..." id="feel-input">
-            <button type="submit" id="modalSubmit">Submit</button>
-          </form>
-        </div>
-        <h3 onclick="closeModal()" class="closeBtn">&times</h3>
+
+    <div class="grid-content" id="landingPageContainer">
+      <div class="hero-content">
+        <h1>FMood, Food Journal</h1>
+        <h3>Fall in love with how you feel after a meal.</h3>
+        <p><strong>Food</strong> isn't just <strong>Food</strong>. What you eat plays a role in how your mood will
+          change throughout the day.
+          Use this <strong>FMood</strong> journal to keep track of what you eat, how it makes you feel and also get
+          some <strong>Nutritional Info</strong> about what you ate
+          and what you plan to eat next.
+        </p>
+
+        <button id="openModal" onclick="openModal()">
+          Log Your Meal
+        </button>
       </div>
     </div>
 
-    <footer class="footer">
+    <div class="grid-right-side">
+      <h2>Did you know?</h2>
+      <div id="food-fact-container">
+        <p id="food-fact-content"></p>
+      </div>
+    </div>
+    <footer class="grid-footer">
       <h5>
         What You Eat Says A Lot About How You Feel & How You Want To Feel
       </h5>
@@ -101,8 +80,27 @@
         &copy; FMood, 2023
       </p>
     </footer>
-
   </div>
+
+  <!--Modal Container -->
+  <div id="themodal" class="modal" style="display: none;">
+    <div class="thecontent">
+      <div class="left-side">
+        <h2 id="day"></h2>
+        <span id="hour"></span>
+      </div>
+      <div class="right-side">
+        <form id="foodForm">
+          <input type="text" placeholder="what did you eat..." id="food-input">
+          <input type="text" placeholder="how did you feel while eating..." id="feel-input">
+          <button type="submit" id="modalSubmit">Submit</button>
+        </form>
+      </div>
+      <h3 onclick="closeModal()" class="closeBtn">&times</h3>
+    </div>
+  </div>
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
