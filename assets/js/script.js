@@ -122,9 +122,8 @@ function captureInputs() {
 			time: dayjs().format('MMM D'),
 			meal: foodInput,
 			mood: feelInput,
-		
 		};
-		closeModal()
+		closeModal();
 
 		journalEntries.push(journalEntry);
 
@@ -202,6 +201,16 @@ function closeModal() {
 		'how did you feel while eating...?';
 	inputs.forEach((input) => (input.value = ''));
 }
+
+// Dropdown menu
+const toggleButton = document.querySelector('.toggle-menu');
+const navLinks = document.querySelectorAll('.nav-links');
+
+toggleButton.addEventListener('click', () => {
+	console.log('hello?');
+	navLinks.classList.add('active');
+	toggleButton.classList.toggle('active');
+});
 
 // Function that calls for information from 'food' through the API
 function nutritionData(food) {
